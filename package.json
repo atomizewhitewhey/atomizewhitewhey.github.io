@@ -1,0 +1,14 @@
+{
+  "name": "topics",
+  "version": "1.0.0",
+  "description": "Topics Project",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "matthew, hadrian",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6"
+  }
+}
