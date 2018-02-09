@@ -1,22 +1,28 @@
 <html>
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Article Page</title>
 
-    <title>Hello, world!</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mystyles.css" rel="stylesheet">
+    <link href="css/article.css" rel="stylesheet">
   </head>
   <body>
-    <div class="jumbotron">
-      HEADER
-    </div>
-    <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-header" style = "text-align:center;">
+        <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal" style = "float:left; outline:none !important;">
+        <a><img src = "img/menu.png"></a>
+        </button>
+        <h2 style="font-family: kinfolkFont">KITH</h2>
+      </div>
+    </nav>
+    <div class="container article-container">
       <div class="row">
         <div class="col-2">
-          <nav id="article-nav" class="navbar" style="position:sticky;top:10px;">
+          <nav id="article-nav" class="navbar" style="position:sticky;top:10px;justify-content:center">
             <a href="#">Navbar</a>
             <a href="#para-1">Paragraph 1</a>
             <a href="#para-2">Paragraph 2</a>
