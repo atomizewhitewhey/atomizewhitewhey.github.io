@@ -1,0 +1,215 @@
+body {
+	color :#424242;
+	font-family:circularFont;
+}
+
+hr {
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+
+
+.btn-demo {
+	margin: 0px;
+	padding: 0px;
+	border-radius: 0;
+	font-size: 16px;
+	width:80px;
+	outline:none !important;
+}
+
+button {
+	outline:none !important;
+}
+
+a:hover {
+	text-decoration: underline;
+	color:#DBDBDB;
+}
+
+a {
+	text-decoration: none;
+	color: #A7A7A7;;
+}
+
+.verticalline {
+	border-right: thin solid #E1E1E1;
+}
+
+.horizontalline {
+	border-top: thin solid #E1E1E1;
+	margin-left:60px;
+	margin-bottom: 100px;
+}
+
+.left .modal-dialog {
+	position: fixed;
+	margin: auto;
+	width: 320px;
+	height: 100%;
+	-webkit-transform: translate3d(0%, 0, 0);
+	-ms-transform: translate3d(0%, 0, 0);
+	-o-transform: translate3d(0%, 0, 0);
+	transform: translate3d(0%, 0, 0);
+}
+
+.left .modal-content{
+	height: 100%;
+	overflow-y: auto;
+}
+	
+.left .modal-body {
+	padding: 15px 15px 80px;
+}
+
+
+.left .modal-dialog{
+	left: -320px;
+	-webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+	-moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+	-o-transition: opacity 0.3s linear, left 0.3s ease-out;
+	transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+	
+.left .modal-dialog{
+	left: 0;
+}
+
+.copyright {
+	position: fixed;
+	bottom:10px;
+}
+        
+
+
+@font-face {
+	font-family:circularFont;
+	src : url("/fonts/Roboto-Bold.ttf");
+}
+
+@font-face {
+	font-family:kinfolkFont;
+	src : url("/fonts/charlotte.ttf");
+}
+
+@font-face {
+	font-family:futurathinFont;
+	src: url("/fonts/futurastdheavy.ttf");
+}
+
+@font-face {
+	font-family:futurathin;
+	src: url("/fonts/futurathin.ttf");
+}
+
+.sqlrow {
+	background-image:url("/img/database.png");
+	background-repeat: no-repeat; 
+	height:300px;
+	background-size:100% 100%;
+	position:relative;
+	background-position:center; 
+	padding-right: 20px;
+}
+
+.gamerow {
+	background-image:url("/img/games.png");
+	background-repeat: no-repeat; 
+	height:300px;
+	background-size:100% 100%;
+	position:relative;
+	background-position:center; 
+	padding-right: 20px;
+}
+
+.sqltext {
+	padding:50px;
+	text-align: center;
+	padding-top:100px;
+}
+
+.article {
+	height:300px;
+	width:100%;
+	padding:10px;
+}
+
+.article2 {
+	height:700px;
+	width:100%;
+	padding:10px;
+	margin-top: 40px;
+}
+
+.imgcol {
+	height:500px;
+	padding:0px;
+	padding-right:20px;
+}
+
+.imgdronerow {
+	height:100%;
+	background-image: url("/img/drone.jpg");
+	background-repeat: no-repeat; 
+	background-position:center; 
+	background-size:100%;
+	border-radius:5px;
+}
+
+.imgdesignrow {
+	background-size:100%;
+	height:100%;
+	background-image: url("/img/draw.jpg");
+	background-repeat: no-repeat; 
+	background-position:center; 	
+	border-radius:5px;
+}
+
+.imgvrrow {
+	background-size:100%;
+	height:100%;
+	background-image: url("/img/vr.jpg");
+	background-repeat: no-repeat; 
+	background-position:center; 
+	border-radius:5px;	
+}
+.indivpost {
+	padding:20px;
+}
+
+
+.solidityrow {
+	height:300px;
+	width:100%;
+	background-size:100%;
+	background-image: url("/img/world.jpg");
+	margin-top: 20px;
+	margin-bottom: 20px;
+	position:relative;
+}
+
+.luarow {
+	height:300px;
+	width:100%;
+	background-size:100%;
+	background-image: url("/img/pokemon.jpg");
+	margin-top: 20px;
+	margin-bottom: 20px;
+	position:relative;
+}
+
+.footerrow {
+	width:100%;
+	margin-top: 100px;
+	bottom:0px;
+	position:flex;
+	text-align:center;
+}
+
+
+.titlebox {
+	position: absolute;
+	color:#242323;
+	width:100%;
+	left:50px;
+}
