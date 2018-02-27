@@ -1,0 +1,242 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Article Page</title>
+
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/mystyles.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-header" style = "text-align:center;">
+        <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal" style = "float:left; outline:none !important;">
+        <a><img src = "../img/menu.png"></a>
+        </button>
+        <h2 style="font-family: kinfolkFont">KITH</h2>
+      </div>
+    </nav>
+    <div class="container article-container">
+      <div class="row">
+        <div class="col-3">
+          <nav id="article-nav" class="navbar" style="position:sticky;top:10px;justify-content:center">
+            <a href="#">Navbar</a>
+            <a href="#para-1">Paragraph 1</a>
+            <a href="#para-2">Paragraph 2</a>
+            <a href="#para-3">Paragraph 3</a>
+          </nav>
+        </div>
+        <div data-spy="scroll" data-target="#article-nav" class="col">
+          <h2>Regular Expressions</h2>
+          <h2 id="para-1">Introduction</h2>
+          <p>Regular Expressions, referred to henceforth as regexes, is a Domain Specific Language for text processing. More specifically, a regular expression is a language that describes a pattern of characters to search for in a string. For example, To search for files with names that end with <code>".txt"</code>, the regex to enter is <code>"^.*\.txt$"</code></p>
+          <p>Regexes are most commonly used in tasks that require text processing. Some of the most notable uses are in:</p>
+          <ul>
+            <li>
+              Data Validation, a process of ensuring the integrity of data in large databases. Regexes are used to ensure data content match a specification.
+            </li>
+            <li>
+              Web Scraping, a process of extracting data from websites. Regexes help search for the relevant content in the websites.
+            </li>
+          </ul>
+          <p>
+            Regex is an extremely powerful language when mastered, due to the room for optimisatiom. Since such processes are extremely common in companies from most industries, many companies actively list regex as a pre-requisite for their developers!
+          </p>
+          <h2 id="para-2">Why use Regex?</h2>
+          <p>
+            Before we proceed onto introducing the syntax (rules) of regexes, I would like to take some time to highlight the strengths of regexes. Hopefully, this section will generate more motivation to master the language.
+          </p>
+          <p>
+            The most prominent feature of regex is how compact it is, compared to an implementation in most General Programming Languages (E.g. Java, Python). For comparison, let's take the common task of determining if a text string contains the letter 'a'.
+          </p>
+          <p>
+            The difference in compactness may not be apparent in this case, due to the simplicity of the task. However, note in the code implementation, that concepts such as "type casting" and knowing that the ASCII value of the letter 'a' is 97 are needed. This brings out the core benefit of all DSLs, which is the ability to abstract away details that do not concern the domain specific task, which in this case is just matching strings.
+          </p>
+          <p>
+            Now, let us try a more complicated example, password validation! A common password requirement is: Your password should have more than 8 characters, containing at least one uppercase letter, one lowercase letter and one digit.
+          </p>
+            <pre><code>
+public static boolean isValidPassword2(String input) {
+
+  boolean upperCaseFound = false
+      , lowerCaseFound = false
+      , numberFound = false;
+
+  if (input.length() < 8) {
+    return false;
+  }
+
+  for (char c : input.toCharArray()) {
+    if (!Character.isLetterOrDigit(c)) {
+      return false;
+    }
+    if (Character.isDigit(c)) {
+      numberFound = true;
+    }
+    if (Character.isUpperCase(c)) {
+      upperCaseFound = true;
+    }
+    if (Character.isLowerCase(c)) {
+      lowerCaseFound = true;
+    }
+  }
+
+  return upperCaseFound && lowerCaseFound && numberFound;
+}
+            </code></pre>
+            <pre><code>
+(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}
+            </code></pre>
+          <p>
+            The difference in compactness is fairly obvious at this point. Due to the increase in complexity of the task, the code implementation becomes less trivial and much more verbose. One could argue that the code on the left hand side is much easier to read, compared to the seemingly incomprehensible regex.
+          </p>
+          <h2 id="para-3">Syntax</h2>
+          <p>
+            Up to this point, we have been discussing and building motivation for using regex in the specific task of string matching. In this section, we will start to discuss about the actual syntax, in other words the rules, of the language. In particular, we will be using a Traditional Non-Determistic Finite Automata (NFA) Regex engine. These terms will make more sense subsequently when we discuss how regexes work behind the scenes.
+          </p>
+          <p>
+            The most basic form of a regex is simply matching using a full string. For example, to look for occurences of <code>"foo"</code> in any string, you can simply use the regex <code>foo</code>.
+          </p>
+          <blockquote class="blockquote">
+            Try it yourself! Match the string "foo" in "foobar":
+          </blockquote>
+          <p>
+            The ability to formulate convoluted string patterns comes from the use of <b>"Metacharacters"</b>. Metacharacters are a set of special characters that affect the way that a pattern is to be matched. These Metacharacters can have different types, depending on their purpose in the regex, which will discuss in the subsequent sections.
+          </p>
+          <p>
+            Character Classes <code>[expression]</code>
+          </p>
+          <p>
+            These constructs define a set of possible characters that can be matched. E.g: The regex <code>[abc]</code> will match with <b>either</b> an <code>'a'</code>, <code>'b'</code>, or <code>'c'</code> character. When dealing with Character Classes, there are some Metacharacters that only make sense when used in tandem.
+          </p>
+          <p>
+            Negation <code>[^expression]</code>
+          </p>
+          <p>
+            The <code>^</code> negation Metacharacter represents an OTHER THAN pattern. E.g. <code>[^abc]</code> matches all characters EXCEPT the <code>'a'</code>, <code>'b'</code>, or <code>'c'</code> character.
+          </p>
+          <p>
+            Range <code>[character-character]</code>
+          </p>
+          <p>
+            The <code>-</code> range Metacharacter represents a range of characters. This Metacharacter makes the most sense when used with alphanumeric characters. E.g. The regex <code>[1-9]</code> will match with any digit and the regex <code>[a-z]</code> will match with any lowercase letter. Finally, ranges can be chained together. The regex <code>[a-zA-Z]</code> will match any letter, uppercase or not.
+          </p>
+          <p>
+            Summary of Metacharacters involved with Character Classes
+          </p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Metacharacter</th>
+                <th>Usage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>^</td>
+                <td>Negation of a set of characters</td>
+              </tr>
+              <tr>
+                <td>-</th>
+                <td>Range of characters</td>
+              </tr>
+              <tr>
+                <td>[ ]</th>
+                <td>Defines a character class</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            Predefined Character Classes
+          </p>
+          <p>
+            These are sets of characters which are fixed and commonly used. Hence, they have dedicated syntax to denote such sets.
+          </p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Expression</th>
+                <th>Matches</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>.</td>
+                <td>Any character</td>
+              </tr>
+              <tr>
+                <td>\d</td>
+                <td>Any digit, [0-9]</td>
+              </tr>
+              <tr>
+                <td>\D</td>
+                <td>Any non-digit, [^0-9]</td>
+              </tr>
+              <tr>
+                <td>\s</td>
+                <td>Any whitespace character</td>
+              </tr>
+              <tr>
+                <td>\S</td>
+                <td>Any non-whitespace character</td>
+              </tr>
+              <tr>
+                <td>\w</td>
+                <td>Any word character (alphanumeric, including underscore)</td>
+              </tr>
+              <tr>
+                <td>\W</td>
+                <td>Any non-word character</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            Quantifiers
+          </p>
+          <p>
+            These are Metacharacters that specify the number of occurences that you want to match against.
+          </p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Expression</th>
+                <th>Matches</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>expression<b>?</b></td>
+                <td>Matches expression once or not at all</td>
+              </tr>
+              <tr>
+                <td>expression<b>*</b></td>
+                <td>Matches expression ZERO or more times</td>
+              </tr>
+              <tr>
+                <td>expression<b>+</b></td>
+                <td>Matches expression ONE or more times</td>
+              </tr>
+              <tr>
+                <td>expression<b>{n}</b></td>
+                <td>Matches expression EXACTLY n times</td>
+              </tr>
+              <tr>
+                <td>expression<b>{n, }</b></td>
+                <td>Matches expression AT LEAST n times</td>
+              </tr>
+              <tr>
+                <td>expression<b>{n, m}</td>
+                <td>Matches expression AT LEAST n times and AT MOST m times</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-2">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
