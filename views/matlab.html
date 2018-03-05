@@ -1,0 +1,376 @@
+
+<html>
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Article Page</title>
+
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/mystyles.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+  </head>
+  <body><script id="__bs_script__">//<![CDATA[
+    document.write("<script async src='/browser-sync/browser-sync-client.js?v=2.23.6'><\/script>".replace("HOST", location.hostname));
+//]]></script>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-header" style = "text-align:center;">
+        <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal" style = "float:left; outline:none !important;">
+        <a><img src = "../img/menu.png"></a>
+        </button>
+        <h2 style="font-family: kinfolkFont">KITH</h2>
+      </div>
+    </nav>
+    <div class="container article-container">
+      <div class="row">
+        <div class="col-3">
+          <nav id="article-nav" class="navbar" style="position:sticky;top:10px;justify-content:center">
+            <a href="#">Navbar</a>
+            <a href="#para-1">Paragraph 1</a>
+            <a href="#para-2">Paragraph 2</a>
+            <a href="#para-3">Paragraph 3</a>
+          </nav>
+        </div>
+        <div data-spy="scroll" data-target="#article-nav" class="col">
+          <h2>MATLAB</h2>
+          <h2 id="para-1">Introduction</h2>
+          <p>
+
+            MATLAB, short for Matrix Laboratory, is a programming language designed for matrix manipulations, implementation of algorithms and the plotting of functions and data.
+            
+            Its design allows for a much more intuitive understanding of the code, where data points can be easily input into array variables.
+
+          </p>
+
+          <pre><code>
+            x = [1 2 3 4]
+            y = [1 2 3 4]
+          </code></pre>
+
+
+          <p>
+
+            There are many pre-existing built-in functions that allow for numerical analysis through MATLAB’s support of Graphical User Interface features, where it is very easy to plot graphs.
+
+          </p>
+
+          <pre><code>
+            plot(x, y)
+          </code></pre>
+
+          <p>
+            Through these features, MATLAB has found its use in various fields, due to the widespread use of linear algebra in problems like image processing, statistical analysis and machine learning. 
+          </p>
+
+
+          <h2 id="para-2">So, why MATLAB?</h2>
+          <p>
+            Ultimately, programming languages like Java can in its own right, solve linear algebra problems. However, unlike Java or Python, which both require external imported modules or an extensive amount of code to carry out data analysis and matrix manipulation while providing graphical output, MATLAB overcomes this, by narrowing its scope, thereby lowering the learning curve, and making it much more accessible to users who have no programming experience whatsoever. 
+          </p>
+
+          <p>
+            So, let’s take a look at how MATLAB solves simple problems in the aforementioned fields of
+          </p>
+
+          <ol>
+            <li>
+              Image Processing
+            </li>
+            <li>
+              Machine Learning
+            </li>
+          </ol>
+          <p>
+            and see why MATLAB may perhaps, be the better alternative when it comes to users who have had no programming experience at all.
+          </p>
+
+
+          <h2 id="para-3">Image Processing</h2>
+
+          <p>
+            All images are just matrices with a width and height corresponding to the number of pixels there are in the image. The value corresponding to the pixel in the matrix represents the intensity of the pixel’s “redness”, “greenness” and “blueness”, with numerical values that lie in the range of 0 to 255.  
+          </p>
+
+          <p>
+            Seeing as how images are all just matrices, many problems within the field of image processing are eventually just problems that have to do with matrix manipulation. Manipulations such as image rotation, image reflection are just simple problems of rearranging the values that lie within a matrix.
+          </p>
+
+          <p>
+            So, let’s see how MATLAB stands against Java when it comes to problems like image rotation and changing images to become grayscale.
+          </p>
+
+          <div class = 'row'>
+            <div class = 'col-xs-12 col-md-6'>
+              <pre class="prettyprint"><code>
+public static Picture rotate(String fileLoc, String degree) {
+  Picture p = Utils.loadPicture(fileLoc);
+  int height = p.getHeight();
+  int width = p.getWidth();
+
+  if (degree.equals("90")) {
+
+      Picture n = Utils.createPicture(height, width);
+      for (int w = 0; w < width; w++) {
+          for (int h = (height - 1); h >= 0; h--) {
+              Color c = p.getPixel(w, h);
+              n.setPixel((height - 1) - h, w, c);
+          }
+      }
+      return n;
+
+  } else if (degree.equals("180")) {
+
+      Picture n = Utils.createPicture(width, height);
+      for (int h = (height-1); h >= 0; h--) {
+          for (int w = (width - 1); w >= 0; w--) {
+              Color c = p.getPixel(w, h);
+              n.setPixel((width - 1) - w, (height - 1) - h, c);
+          }
+      }
+      return n;
+
+  } else if (degree.equals("270")) {
+
+      Picture n = Utils.createPicture(height, width);
+      for (int w = (width - 1); w >= 0 ; w--) {
+          for (int h = 0; h < height; h++) {
+              Color c = p.getPixel(w, h);
+              n.setPixel(h, (width - 1) - w, c);
+          }
+      }
+      return n;
+
+  } else {
+      System.out.println("Degree entered is not valid");
+      return null;
+  }
+              </code></pre>
+            </div>
+
+            <div class = 'col-xs-12 col-md-6'>
+              <pre class="prettyprint"><code>
+imdata = imread(“file.jpg”);
+imdata = imrotate(imdata, 90);
+              </code></pre>
+            </div>
+          </div>
+
+          <p>
+            Arguably, the MATLAB code is using an extension toolkit which would be equivalent to importing external libraries in Java. However, this image processing toolkit comes pre-installed into many MATLAB versions, and is developed to work seamlessly with MATLAB. On the other hand, for Java, one has to source for an external library online, install it with its dependencies, and with any luck, it may not have any conflicts with your existing code. 
+          </p>
+
+
+          <h2 id="para-4">Image Pre-processing and Machine Learning</h2>
+
+          <p>
+            Machine Learning is a field in a computer science that allows computers to solve problems of regression and classification by learning from data. For example, teaching a computer to identify objects in an image or predicting property prices are classification and regression problems respectively. 
+          </p>
+
+          <p>
+            Taking a closer look at image identification, there is typically some image pre-processing before an image is used as data to train the computer. Let’s use a simple example of pre-processing images and using it as training data for a machine learning model to highlight the simplicity of MATLAB. 
+          </p>
+
+          <p>
+            For those who have watched Silicon Valley, let’s say we’re trying to train a computer to be able to identify hot dogs. 
+          </p>
+
+          <div style = "margin-bottom: 50px; margin-top: 50px;">
+            <img src = "../img/nohotdog.jpeg" style = "display: block; margin-right: auto; margin-left: auto;">
+          </div>
+
+          <p>
+            Firstly, to reduce noise in the data by averaging out values across the image, a Gaussian filter is often convolved through the image. 
+          </p>
+
+          <div class = 'row' style = "margin-bottom: 50px; margin-top: 50px;">
+            <div class = 'col-xs-6 col-md-3' style = "vertical-align: middle; text-align: center">
+              <p style = "vertical-align: middle;">Before Applying Gaussian Filter</p>
+            </div>
+            <div class = 'col-xs-6 col-md-3'>
+              <img src = "../img/hotdog.jpg">
+            </div>
+            <div class = 'col-xs-6 col-md-3' style = "vertical-align: middle; text-align: center">
+              <p style = "vertical-align: middle;">After Applying Gaussian Filter</p>
+            </div>            
+            <div class = 'col-xs-6 col-md-3'>
+              <img src = "../img/hotdoggaussian.png">
+            </div>
+          </div>
+
+          <div class = 'row'>
+            <div class = 'col-xs-12 col-md-6'>
+              <pre class="prettyprint"><code>
+public static Picture gaussianFilter(Picture p) {
+    int height = p.getHeight();
+    int width = p.getWidth();
+    int[][] gaussianKernel = {{16, 8, 16},
+                                {8, 4, 8},
+                              {16, 8, 16}};
+
+    Picture n = Utils.createPicture(width, height);
+
+    for (int h = 0; h < height; h++) {
+        for (int w = 0; w < width; w++) {
+            int bH = h - 1;
+            int bW = w - 1;
+            int eH = h + 1;
+            int eW = w + 1;
+
+            if ((bH >= 0) && (bW >= 0) && (eH < height) && (eW < width)){
+                // Middle
+                int r = 0;
+                int g = 0;
+                int b = 0;
+                for (int nH = -1; nH <= 1; nH++) {
+                    for (int nW = -1; nW <= 1; nW++) {
+                        Color c = p.getPixel(w+nW, h+nH);
+                        r += c.getRed() / gaussianKernel[1+nW][1+nH];
+                        g += c.getGreen() / gaussianKernel[1+nW][1+nH];
+                        b += c.getBlue() / gaussianKernel[1+nW][1+nH];
+                    }
+                }
+
+                Color cNew = new Color (r, g, b);
+                n.setPixel(w, h, cNew);
+            } else {
+                Color c = p.getPixel(w, h);
+                n.setPixel(w, h, c);
+            }
+        }
+    }
+
+    return n;
+
+}
+              </code></pre>
+            </div>
+
+            <div class = 'col-xs-12 col-md-6'>
+              <pre class="prettyprint"><code>
+imdata = imread(“file.jpg”);
+imageblur = imgaussfilt(imdata);
+              </code></pre>
+            </div>
+          </div>
+
+          <p>
+            Secondly, a Sobel-Edge operator may then be used on the image to emphasize the edges of the image, reducing any variance brought about by differing colors of same the object across different images. 
+          </p>
+
+          <div class = 'row' style = "margin-bottom: 50px; margin-top: 50px;">
+            <div class = 'col-xs-6 col-md-3' style = "vertical-align: middle; text-align: center">
+              <p style = "vertical-align: middle;">Before Applying Sobel Filter</p>
+            </div>
+            <div class = 'col-xs-6 col-md-3' style = "vertical-align: middle; text-align: center">
+              <img src = "../img/hotdoggaussian.png">
+            </div>
+            <div class = 'col-xs-6 col-md-3' style = "vertical-align: middle; text-align: center">
+              <p style = "vertical-align: middle;">After Applying Sobel Filter</p>
+            </div>
+            <div class = 'col-xs-6 col-md-3' style = "vertical-align: middle; text-align: center">
+              <img src = "../img/hotdogsobel.png">
+            </div>
+          </div>
+
+          <div class = 'row'>
+            <div class = 'col-xs-12 col-md-6'>
+              <pre class="prettyprint"><code>
+public static Picture sobelEdgeDetector(String fileLoc) {
+    Picture p = Transformations.grayscale(fileLoc);
+    int height = p.getHeight();
+    int width = p.getWidth();
+
+    int[][] sobelX = {{1, 0, -1},
+                      {2, 0, -2},
+                      {1, 0, -1}};
+
+    int[][] sobelY = {{-1, -2, -1},
+                      {0, 0, 0},
+                      {1, 2, 1}};
+    Picture n = Utils.createPicture(width, height);
+
+    for (int h = 0; h < height; h++) {
+        for (int w = 0; w < width; w++) {
+
+            int bH = h - 1;
+            int bW = w - 1;
+            int eH = h + 1;
+            int eW = w + 1;
+
+            if ((bH >= 0) && (bW >= 0) && (eH < height) && (eW < width)) {
+                int vx = 0;
+                int vy = 0;
+                for (int nH = -1; nH <= 1; nH++) {
+                    for (int nW = -1; nW <= 1; nW++) {
+                        Color c = p.getPixel(w + nW, h + nH);
+                        int v = c.getRed();
+                        vx += v * sobelX[1 + nW][1 + nH];
+                        vy += v * sobelY[1 + nW][1 + nH];
+                    }
+                }
+
+                int vNew = (int) (Math.ceil(Math.sqrt((vx * vx) + (vy * vy))));
+
+                Color cNew = new Color(vNew, vNew, vNew);
+                n.setPixel(w, h, cNew);
+            } else {
+                Color c = p.getPixel(w, h);
+                n.setPixel(w, h, c);
+            }
+        }
+    }
+
+    return n;
+}
+              </code></pre>
+            </div>
+
+            <div class = 'col-xs-12 col-md-6'>
+              <pre class="prettyprint"><code>
+imdata = imread(“file.jpg”);
+imagesobel = edge(I,'sobel');
+              </code></pre>
+            </div>
+          </div>
+
+
+          <p>
+            These two examples of image pre-processing already highlight how compact MATLAB is compared to Java when it comes to matrix manipulation. For the next step of training the machine learning model, the Java code will be omitted as it will be very verbose in contrast with MATLAB since the algorithm is much more complicated than just matrix manipulations.
+          </p>
+
+          <p>
+            Using the processed data we have obtained, we can then feed it into a machine learning algorithm to be trained.
+          </p>
+
+
+          <pre class="prettyprint"><code>
+Xtrain = X(cv.training,:);
+Ytrain = y(cv.training,1);
+Xtest = X(cv.test,:);
+Ytest = y(cv.test,1);
+
+model = ClassificationTree.fit(Xtrain,Ytrain);
+          </code></pre>
+
+          <p>
+            Using the model that we have trained, we can easily identify if the object in any other image is a hotdog, with just a single line of code.
+          </p>
+
+          <pre class="prettyprint"><code>
+ypred = predict(model,otherimage);
+          </code></pre>
+
+
+          <p>
+            And there we have it, a machine learning model that has been trained to identify hot dogs! As we have seen so far, MATLAB really helps to simplify many of the steps involved, essentially reducing the code into the names of the processes we want the images to undergo. 
+          </p>
+        </div>
+        <div class="col-2">
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
