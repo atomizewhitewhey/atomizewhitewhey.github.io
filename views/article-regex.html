@@ -1,0 +1,512 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Article Page</title>
+
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/article-regex.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-header" style = "text-align:center;">
+        <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal" style = "float:left; outline:none !important;">
+        <a><img src = "../img/menu.png"></a>
+        </button>
+        <h2 style="font-family: kinfolkFont">KITH</h2>
+      </div>
+    </nav>
+    <div class="container article-container">
+      <div class="row">
+        <div class="col-2">
+          <nav id="article-nav" class="nav nav-pills flex-column">
+            <a class="nav-link" href="#introduction">Introduction</a>
+            <a class="nav-link" href="#why-use-regex">Why use Regex?</a>
+            <a class="nav-link" href="#syntax">Syntax</a>
+            <nav class="nav flex-column">
+              <a class="nav-link ml-3" href="#character-classes">Character classes</a>
+              <a class="nav-link ml-3" href="#quantifiers">Quantifiers</a>
+              <a class="nav-link ml-3" href="#capturing-groups-backreferences">Capturing Groups & Backreferences</a>
+              <a class="nav-link ml-3" href="#look-ahead-look-behind">Look-ahead & Look-behind</a>
+            </nav>
+            <a class="nav-link" href="#all-together-now">All Together Now</a>
+          </nav>
+        </div>
+        <div data-spy="scroll" data-target="#article-nav" class="col-8">
+          <h2>Regular Expressions Tutorial</h2>
+          <div id="introduction">
+            <h2>Introduction</h2>
+            <p>Regular Expressions, or regex, is a Domain Specific Language for text processing. More specifically, regex is a language that describes a pattern of characters to search for in a string. For example, To search for files with names that end with <code>".txt"</code>, the regex to enter is <code>".*\.txt"</code></p>
+            <p>Regexes are most commonly used in tasks that require text processing. Some of the most notable uses are in:</p>
+            <ul>
+              <li>
+                Data Validation, a process of ensuring the integrity of data in large databases. Regexes are used to ensure data content match a specification.
+              </li>
+              <li>
+                Web Scraping, a process of extracting data from websites. Regexes help search for the relevant content in the websites.
+              </li>
+            </ul>
+            <p>
+              Regex is an extremely powerful language when mastered, due to the room for optimisatiom. Since such processes are extremely common in companies from most industries, many companies actively list regex as a pre-requisite for their developers!
+            </p>
+          </div>
+          <div id="why-use-regex">
+            <h2>Why use Regex?</h2>
+            <p>
+              Before we proceed onto introducing the syntax (rules) of regexes, I would like to take some time to highlight the strengths of regexes. Hopefully, this section will generate more motivation to master the language.
+            </p>
+            <p>
+              The most prominent feature of regex is how compact it is, compared to an implementation in most General Programming Languages (E.g. Java, Python). For comparison, let's take the common task of determining if a text string contains the letter <code>'a'</code>.
+            </p>
+            <div class="snippet">
+              <pre class="prettyprint"><code>
+public static boolean isValidPassword1(String input) {
+  for (char c : input.toCharArray()) {
+    if ((int) c == 97) {
+      return true;
+    }
+  }
+  return false;
+}
+              </code></pre>
+              <div class="valigncenter vsdiv">
+                <p>V.S.</p>
+              </div>
+              <div class="valigncenter">
+                <pre class="prettyprint"><code>a</code></pre>
+              </div>
+            </div>
+            <p>
+              The difference in compactness may not be apparent in this case, due to the simplicity of the task. However, note in the code implementation, that it assumed knowledge of certain concepts. These include "type casting" as well as knowing the ASCII value of the letter <code>'\1'</code>. This brings out the core benefit of all DSLs, which is the ability to abstract away details that do not concern the domain specific task, which in this case is just matching character patterns.
+            </p>
+            <p>
+              Now, let us try a more complicated example, password validation! A common password requirement is: Your password should have at least 8 alphanumeric characters. Of which, it consists one uppercase alphabet, one lowercase alphabet AND one digit.
+            </p>
+            <div class="snippet">
+              <pre class="prettyprint"><code>
+public static boolean isValidPassword2(String input) {
+
+  boolean upperCaseFound = false
+      , lowerCaseFound = false
+      , numberFound = false;
+
+  if (input.length() < 8) {
+    return false;
+  }
+
+  for (char c : input.toCharArray()) {
+    if (!Character.isLetterOrDigit(c)) {
+      return false;
+    }
+    if (Character.isDigit(c)) {
+      numberFound = true;
+    }
+    if (Character.isUpperCase(c)) {
+      upperCaseFound = true;
+    }
+    if (Character.isLowerCase(c)) {
+      lowerCaseFound = true;
+    }
+  }
+
+  return upperCaseFound && lowerCaseFound && numberFound;
+}
+              </code></pre>
+              <div class="valigncenter vsdiv">
+                <p>V.S.</p>
+              </div>
+              <div class="valigncenter">
+                <pre class="prettyprint"><code>
+(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}
+                </code></pre>
+              </div>
+            </div>
+            <p>
+              The difference in compactness is fairly obvious at this point. Due to the increase in complexity of the task, the code implementation becomes less trivial and much more verbose. One could argue that the code on the left hand side is much easier to understand, compared to the seemingly incomprehensible regex. However, through this tutorial, I hope you will be able to appreciate how intuitive regex can be once you understand the basic syntax.
+            </p>
+          </div>
+          <div id="syntax">
+            <h2>Syntax</h2>
+            <p>
+              Up to this point, we have been discussing and building motivation for using regex in the specific task of string matching. In this section, we will start to discuss about the actual syntax, in other words the rules, of the language. In particular, we will be using a Traditional Non-Determistic Finite Automata (NFA) Regex engine. These terms will make more sense subsequently when we discuss how regexes work behind the scenes.
+            </p>
+            <p>
+              The most basic form of a regex is simply matching using a full string. For example, to look for occurences of <code>"foo"</code> in any string, you can simply use the regex <code>foo</code>.
+            </p>
+            <blockquote class="blockquote">
+              Try it yourself! Match the string "foo" in "foobar":
+            </blockquote>
+            <p>
+              The ability to formulate convoluted string patterns comes from the use of <b>"Metacharacters"</b>. Metacharacters are a set of special characters that affect the way that a pattern is to be matched. These Metacharacters can have different types, depending on their purpose in the regex, which will discuss in the subsequent sections.
+            </p>
+            <div id="character-classes">
+              <h4 id="character-classes">Character Classes <code>[expression]</code></h4>
+              <p>
+                These constructs define a set of possible characters that can be matched. E.g: The regex <code>[abc]</code> will match with <b>either</b> an <code>'a'</code>, <code>'b'</code>, or <code>'c'</code> character. When dealing with Character Classes, there are some Metacharacters that only make sense when used in tandem.
+              </p>
+              <p>Negation <code>[^expression]</code></p>
+              <p>
+                The <code>^</code> negation Metacharacter represents an OTHER THAN pattern. E.g. <code>[^abc]</code> matches all characters EXCEPT the <code>'a'</code>, <code>'b'</code>, or <code>'c'</code> character.
+              </p>
+              <p>Range <code>[character-character]</code></p>
+              <p>
+                The <code>-</code> range Metacharacter represents a range of characters. This Metacharacter makes the most sense when used with alphanumeric characters. E.g. The regex <code>[0-9]</code> will match with any digit and the regex <code>[a-z]</code> will match with any lowercase letter. Finally, ranges can be chained together. The regex <code>[a-zA-Z]</code> will match any letter, uppercase or not.
+              </p>
+              <p>Summary of Metacharacters involved with Character Classes</p>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Metacharacter</th>
+                    <th>Explanation</th>
+                    <th>Example Usage</th>
+                    <th>Match Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>[ ]</th>
+                    <td>Defines a character class</td>
+                    <td>[abc]</td>
+                    <td>
+                      <mark>a</mark><mark class="alt-mark">b</mark><mark>c</mark>defgh
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>^</td>
+                    <td>Negation of a set of characters</td>
+                    <td>[^abc]</td>
+                    <td>
+                      abc<mark>d</mark><mark class="alt-mark">e</mark><mark>f</mark><mark class="alt-mark">g</mark><mark>h</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>-</th>
+                    <td>Range of characters</td>
+                    <td>[^a-ch-z]</td>
+                    <td>
+                      abc<mark>d</mark><mark class="alt-mark">e</mark><mark>f</mark><mark class="alt-mark">g</mark>hijkl
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>Predefined Character Classes</p>
+              <p>
+                These are sets of characters which are fixed and commonly used. Hence, they have dedicated syntax to denote such sets.
+              </p>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Expression</th>
+                    <th>Explanation</th>
+                    <th>Example Usage</th>
+                    <th>Matches</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>.</td>
+                    <td>Any character</td>
+                    <td>.abc</td>
+                    <td>
+                      <mark>qabc</mark><mark class="alt-mark">1abc</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>\d</td>
+                    <td>Any digit, [0-9]</td>
+                    <td>\dabc</td>
+                    <td>
+                      qabc<mark>1abc</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>\D</td>
+                    <td>Any non-digit, [^0-9]</td>
+                    <td>\Dabc</td>
+                    <td>
+                      <mark>qabc</mark>1abc
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>\s</td>
+                    <td>Any whitespace character</td>
+                    <td>[a-z]\s[0-9]</td>
+                    <td>
+                      <mark>a 3</mark><mark class="alt-mark">g 4</mark>a23
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>\S</td>
+                    <td>Any non-whitespace character</td>
+                    <td>[a-z]\S[0-9]</td>
+                    <td>
+                      a 3g 4<mark>a23</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>\w</td>
+                    <td>Any word character (alphanumeric, including underscore)</td>
+                    <td>\w</td>
+                    <td>
+                      <mark>a</mark><mark class="alt-mark">1</mark><mark>_</mark><mark class="alt-mark">A</mark>!@#
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>\W</td>
+                    <td>Any non-word character</td>
+                    <td>\W</td>
+                    <td>
+                      a1_A<mark>!</mark><mark class="alt-mark">@</mark><mark>#</mark>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="quantifiers">
+              <h4 id="quantifiers">Quantifiers</h4>
+              <p>
+                These are Metacharacters that specify the number of occurences that you want to match against.
+              </p>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Expression</th>
+                    <th>Explanation</th>
+                    <th>Example Usage</th>
+                    <th>Matches</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>expression<b>?</b></td>
+                    <td>Matches expression once or not at all</td>
+                    <td>ab?c</td>
+                    <td>
+                      <mark>ac</mark><mark class="alt-mark">abc</mark>abbcabbbc
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>expression<b>*</b></td>
+                    <td>Matches expression ZERO or more times</td>
+                    <td>ab*c</td>
+                    <td>
+                      <mark>ac</mark><mark class="alt-mark">abc</mark><mark>abbc</mark><mark class="alt-mark">abbbc</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>expression<b>+</b></td>
+                    <td>Matches expression ONE or more times</td>
+                    <td>ab+c</td>
+                    <td>
+                      ac<mark>abc</mark><mark class="alt-mark">abbc</mark><mark>abbbc</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>expression<b>{n}</b></td>
+                    <td>Matches expression EXACTLY n times</td>
+                    <td>ab{1}c</td>
+                    <td>
+                      ac<mark>abc</mark>abbcabbbc
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>expression<b>{n, }</b></td>
+                    <td>Matches expression AT LEAST n times</td>
+                    <td>ab{1, }</td>
+                    <td>
+                      ac<mark>abc</mark><mark class="alt-mark">abbc</mark><mark>abbbc</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>expression<b>{n, m}</td>
+                    <td>Matches expression AT LEAST n times and AT MOST m times</td>
+                    <td>ab{1, 2}</td>
+                    <td>
+                      ac<mark>abc</mark><mark class="alt-mark">abbc</mark>abbbc
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="capturing-groups-backreferences">
+              <h4>Capturing Groups <code>(characters)</code></h4>
+              <p>
+                Capturing Groups are used to combine multiple characters into one unit. For example, the regex <code>(dog)</code> creates a single unit containing the characters <code>'d'</code>, <code>'o'</code>, <code>'g'</code>. By creating a single unit, capturing groups allow the use of Quantifiers with units. For example, the regex <code>(dog){3}</code> matches the string <code>"dogdogdog"</code>
+              </p>
+              <h4>Back References <code>\digit</code></h4>
+              <p>
+                While powerful on its own, perhaps a more empowering feature of Capturing Groups is enabling Back References. When Capturing Groups match, the match is saved in memory for later recall via backreference. The saved group can be recalled using the syntax <code>\digit</code>, where the digit corresponds to the order of the group in the regex. For example in the regex <code>(abc)(cc)\2</code>, Group 1 is "abc" while Group 2 is "cc". This regex will then use Group 2 and match the section <code>"abccccc"</code> in <code>"abccccabcabc"</code>.
+              </p>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Nuance</th>
+                    <th>Explanation</th>
+                    <th>Matches</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>(abc){2}</td>
+                    <td>Matches if "abc" occurs twice consecutively</td>
+                    <td>
+                      abcccc<mark>abcabc</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(abc)\1</td>
+                    <td>Group 1 is "abc". Matches if "abc" occurs twice consecutively.</td>
+                    <td>
+                      abcccc<mark>abcabc</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>([a-zA-Z])\1</td>
+                    <td>Group 1 is any alphabet. Matches if any alphabet occur twice consecutively.</td>
+                    <td>
+                      ab<mark>cc</mark><mark class="alt-mark" >cc</mark>abcabc
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(abc)(cc)\2</td>
+                    <td>Group 1 is "abc". Group 2 is "cc".</td>
+                    <td>
+                      <mark>abcccc</mark>abcabc
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>([a-z]){3}\1</td>
+                    <td>Only the last occurrence of the capturing group is recorded in this case. Group 1 is third consecutive lowercase alphabet.</td>
+                    <td>
+                      <mark>abcc</mark>ccabcabc
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="look-ahead-look-behind">
+              <h4>
+                Look-ahead & Look-behind <code>(?METACHARACTERexpression)</code>
+              </h4>
+              <p>
+                Look-aheads & Look-behinds are Non-Capturing Groups, where the match are not stored for backreference. They are interesting and very different from the previous constructs, in the sense that it does not return a match. Instead, it returns a match result, informing the engine whether the match was successful. For example, the regex <code>a(?=b)</code> matches <code>'a'</code>, if and only if the <code>'a'</code> is immediately followed by a <code>'b'</code>.
+              </p>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Expression</th>
+                    <th>Explanation</th>
+                    <th>Example Usage</th>
+                    <th>Matches</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>(<b>?:</b>expression)</td>
+                    <td>A simple non-capturing group. No look-ahead or look-behind.</td>
+                    <td>(?:abc)(cc)\1</td>
+                    <td>
+                      <mark>abcccc</mark>abcabc
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(<b>?=</b>expression)</td>
+                    <td>Positive look-ahead. Having matched up till this construct, check that what follows the matched matches expression.</td>
+                    <td>abc(?=ccc)</td>
+                    <td>
+                      <mark>abcccc</mark>abcabc
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(<b>?!</b>expression)</td>
+                    <td>Negative look-ahead. Having matched up till this construct, check that what follows the matched does not match expression.</td>
+                    <td>abc(?!ccc)</td>
+                    <td>abccccabcabc</td>
+                  </tr>
+                  <tr>
+                    <td>(<b>?<=</b>expression)</td>
+                    <td>Positive look-behind. Having matched up till this construct, check that what precedes the matched matches expression.</td>
+                    <td>(?<=abc)ccc</td>
+                    <td>
+                      abc<mark>ccc</mark>abcabc
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(<b>?<<!>!</b>expression)</td>
+                    <td>Negative look-behind. Having matched up till this construct, check that what precedes the matched does not match expression.</td>
+                    <td>(?<<!>!abc)ccc</td>
+                    <td>ab<mark>ccc</mark>cabcabc</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div id="all-together-now">
+            <h2>All Together Now</h2>
+            <p>
+              Armed with the general knowledge of syntax, let us now revisit and break down the password validation regex above. To reiterate, the password requirement is: Your password should have at least 8 alphanumeric characters. Of which, it consists one uppercase alphabet, one lowercase alphabet AND one digit. The regex is <code>(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8, }</code>. We can break the regex down into the following parts:
+            </p>
+            <ul>
+              <li>Positive Look-ahead <code>(?=.*[a-z])</code></li>
+              <p>As look-ahead is placed at the start, current match progress is an empty string. An empty string exists between every character. Look-ahead reports a successful match, if any empty string in the input is followed by a sequence of characters that ends with a lowercase alphabet.</p>
+              <li>Positive Look-ahead <code>(?=.*[A-Z])</code></li>
+              <p>
+                Similar to the above. Current match progress is an empty string. Look-ahead reports successful match if any empty string in the input is followed by a sequence of characters that ends with an uppercase alphabet.
+              </p>
+              <li>Positive Look-ahead <code>(?=.*\d)</code></li>
+              <p>
+                Similar to the above. Current match progress is an empty string. Look-ahead reports successful match if any empty string in the input is followed by a sequence of characters that ends with a digit.
+              </p>
+              <li>Quantified Character class <code>[a-zA-Z\d]{8, }</code></li>
+              <p>
+                If the 3 look-ahead constructs all report successful matches, proceed with matching a series of alphanumeric characters that is at least 8 characters in length.
+              </p>
+            </ul>
+            <p>In short, the three look-aheads check if the string contains a lowercase alphabet, an uppercase alphabet and a digit respectively. Given those 3 conditions, match any alphanumeric sequence of length at least 8.
+          </div>
+          <h2 id="conclusion">Conclusion</h2>
+          <p>
+            Firstly, congratulations for reaching the end of this regex tutorial. Even though we've just introduced the basics of regex, these commands should be enough for most pattern descriptions. I hope you are now able to appreciate how powerful and terse regex can be, even for complicated patterns. Enjoy!
+          </p>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?autorun=true&amp;skin=desert"></script>
+  <script>
+  function getGlobalOffsetTop(element) {
+    var offset = 0;
+    while (element) {
+      offset += element.offsetTop;
+      element = element.offsetParent;
+    }
+    return offset;
+  }
+
+  function switchActiveState(scrollTop) {
+    var setActive = false;
+
+    var anchors = document.querySelectorAll("#article-nav a");
+    anchors.forEach(function(anchor) {
+      var section = document.querySelector(anchor.getAttribute("href"));
+
+      var offset = getGlobalOffsetTop(section);
+
+      if (offset - 100 <= document.body.scrollTop
+        && offset - 100 + section.clientHeight >= document.body.scrollTop) {
+        anchor.classList.add("active");
+        setActive = true;
+        return;
+      }
+
+      anchor.classList.remove("active");
+    });
+  }
+  window.onscroll = switchActiveState;
+  </script>
+</html>
