@@ -8,13 +8,10 @@
     <title>Article Page</title>
 
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/mystyles.css" rel="stylesheet">
+    <link href="../css/article-navbar.css" rel="stylesheet">
     <link href="../css/article.css" rel="stylesheet">
   </head>
-  <body><script id="__bs_script__">//<![CDATA[
-    document.write("<script async src='/browser-sync/browser-sync-client.js?v=2.23.6'><\/script>".replace("HOST", location.hostname));
-//]]></script>
-
+  <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-header" style = "text-align:center;">
         <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal" style = "float:left; outline:none !important;">
@@ -25,21 +22,27 @@
     </nav>
     <div class="container article-container">
       <div class="row">
-        <div class="col-3">
-          <nav id="article-nav" class="navbar" style="position:sticky;top:10px;justify-content:center">
-            <a href="#">Navbar</a>
-            <a href="#para-1">Paragraph 1</a>
-            <a href="#para-2">Paragraph 2</a>
-            <a href="#para-3">Paragraph 3</a>
+        <div class="col-2">
+          <nav id="article-nav" class="nav nav-pills flex-column">
+            <a class="nav-link" href="#introduction">Introduction</a>
+            <a class="nav-link" href="#why-use-regex">Why use Regex?</a>
+            <a class="nav-link" href="#syntax">Syntax</a>
+            <nav class="nav flex-column">
+              <a class="nav-link ml-3" href="#character-classes">Character classes</a>
+              <a class="nav-link ml-3" href="#quantifiers">Quantifiers</a>
+              <a class="nav-link ml-3" href="#capturing-groups-backreferences">Capturing Groups & Backreferences</a>
+              <a class="nav-link ml-3" href="#look-ahead-look-behind">Look-ahead & Look-behind</a>
+            </nav>
+            <a class="nav-link" href="#all-together-now">All Together Now</a>
           </nav>
         </div>
-        <div data-spy="scroll" data-target="#article-nav" class="col">
+        <div data-spy="scroll" data-target="#article-nav" class="col-8">
           <h2>MATLAB</h2>
           <h2 id="para-1">Introduction</h2>
           <p>
 
             MATLAB, short for Matrix Laboratory, is a programming language designed for matrix manipulations, implementation of algorithms and the plotting of functions and data.
-            
+
             Its design allows for a much more intuitive understanding of the code, where data points can be easily input into array variables.
 
           </p>
@@ -61,13 +64,13 @@
           </code></pre>
 
           <p>
-            Through these features, MATLAB has found its use in various fields, due to the widespread use of linear algebra in problems like image processing, statistical analysis and machine learning. 
+            Through these features, MATLAB has found its use in various fields, due to the widespread use of linear algebra in problems like image processing, statistical analysis and machine learning.
           </p>
 
 
           <h2 id="para-2">So, why MATLAB?</h2>
           <p>
-            Ultimately, programming languages like Java can in its own right, solve linear algebra problems. However, unlike Java or Python, which both require external imported modules or an extensive amount of code to carry out data analysis and matrix manipulation while providing graphical output, MATLAB overcomes this, by narrowing its scope, thereby lowering the learning curve, and making it much more accessible to users who have no programming experience whatsoever. 
+            Ultimately, programming languages like Java can in its own right, solve linear algebra problems. However, unlike Java or Python, which both require external imported modules or an extensive amount of code to carry out data analysis and matrix manipulation while providing graphical output, MATLAB overcomes this, by narrowing its scope, thereby lowering the learning curve, and making it much more accessible to users who have no programming experience whatsoever.
           </p>
 
           <p>
@@ -90,7 +93,7 @@
           <h2 id="para-3">Image Processing</h2>
 
           <p>
-            All images are just matrices with a width and height corresponding to the number of pixels there are in the image. The value corresponding to the pixel in the matrix represents the intensity of the pixel’s “redness”, “greenness” and “blueness”, with numerical values that lie in the range of 0 to 255.  
+            All images are just matrices with a width and height corresponding to the number of pixels there are in the image. The value corresponding to the pixel in the matrix represents the intensity of the pixel’s “redness”, “greenness” and “blueness”, with numerical values that lie in the range of 0 to 255.
           </p>
 
           <p>
@@ -158,22 +161,22 @@ imdata = imrotate(imdata, 90);
           </div>
 
           <p>
-            Arguably, the MATLAB code is using an extension toolkit which would be equivalent to importing external libraries in Java. However, this image processing toolkit comes pre-installed into many MATLAB versions, and is developed to work seamlessly with MATLAB. On the other hand, for Java, one has to source for an external library online, install it with its dependencies, and with any luck, it may not have any conflicts with your existing code. 
+            Arguably, the MATLAB code is using an extension toolkit which would be equivalent to importing external libraries in Java. However, this image processing toolkit comes pre-installed into many MATLAB versions, and is developed to work seamlessly with MATLAB. On the other hand, for Java, one has to source for an external library online, install it with its dependencies, and with any luck, it may not have any conflicts with your existing code.
           </p>
 
 
           <h2 id="para-4">Image Pre-processing and Machine Learning</h2>
 
           <p>
-            Machine Learning is a field in a computer science that allows computers to solve problems of regression and classification by learning from data. For example, teaching a computer to identify objects in an image or predicting property prices are classification and regression problems respectively. 
+            Machine Learning is a field in a computer science that allows computers to solve problems of regression and classification by learning from data. For example, teaching a computer to identify objects in an image or predicting property prices are classification and regression problems respectively.
           </p>
 
           <p>
-            Taking a closer look at image identification, there is typically some image pre-processing before an image is used as data to train the computer. Let’s use a simple example of pre-processing images and using it as training data for a machine learning model to highlight the simplicity of MATLAB. 
+            Taking a closer look at image identification, there is typically some image pre-processing before an image is used as data to train the computer. Let’s use a simple example of pre-processing images and using it as training data for a machine learning model to highlight the simplicity of MATLAB.
           </p>
 
           <p>
-            For those who have watched Silicon Valley, let’s say we’re trying to train a computer to be able to identify hot dogs. 
+            For those who have watched Silicon Valley, let’s say we’re trying to train a computer to be able to identify hot dogs.
           </p>
 
           <div style = "margin-bottom: 50px; margin-top: 50px;">
@@ -181,7 +184,7 @@ imdata = imrotate(imdata, 90);
           </div>
 
           <p>
-            Firstly, to reduce noise in the data by averaging out values across the image, a Gaussian filter is often convolved through the image. 
+            Firstly, to reduce noise in the data by averaging out values across the image, a Gaussian filter is often convolved through the image.
           </p>
 
           <div class = 'row' style = "margin-bottom: 50px; margin-top: 50px;">
@@ -193,7 +196,7 @@ imdata = imrotate(imdata, 90);
             </div>
             <div class = 'col-xs-6 col-md-3' style = "vertical-align: middle; text-align: center">
               <p style = "vertical-align: middle;">After Applying Gaussian Filter</p>
-            </div>            
+            </div>
             <div class = 'col-xs-6 col-md-3'>
               <img src = "../img/hotdoggaussian.png">
             </div>
@@ -256,7 +259,7 @@ imageblur = imgaussfilt(imdata);
           </div>
 
           <p>
-            Secondly, a Sobel-Edge operator may then be used on the image to emphasize the edges of the image, reducing any variance brought about by differing colors of same the object across different images. 
+            Secondly, a Sobel-Edge operator may then be used on the image to emphasize the edges of the image, reducing any variance brought about by differing colors of same the object across different images.
           </p>
 
           <div class = 'row' style = "margin-bottom: 50px; margin-top: 50px;">
@@ -364,7 +367,7 @@ ypred = predict(model,otherimage);
 
 
           <p>
-            And there we have it, a machine learning model that has been trained to identify hot dogs! As we have seen so far, MATLAB really helps to simplify many of the steps involved, essentially reducing the code into the names of the processes we want the images to undergo. 
+            And there we have it, a machine learning model that has been trained to identify hot dogs! As we have seen so far, MATLAB really helps to simplify many of the steps involved, essentially reducing the code into the names of the processes we want the images to undergo.
           </p>
         </div>
         <div class="col-2">

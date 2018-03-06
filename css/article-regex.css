@@ -1,7 +1,3 @@
-.article-container {
-  width: 100%;
-}
-
 pre {
   font-size: 0.7em;
 }
@@ -22,11 +18,6 @@ mark {
 }
 td:not(:nth-child(2)) {
   white-space: nowrap;
-}
-#article-nav {
-  position:sticky;
-  top:20px;
-  justify-content:center;
 }
 .snippet {
   display:flex;
