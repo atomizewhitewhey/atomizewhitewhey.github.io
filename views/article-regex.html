@@ -8,19 +8,23 @@
 
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/article-regex.css" rel="stylesheet">
+    <link href="../css/article-header.css" rel="stylesheet">
     <link href="../css/article-navbar.css" rel="stylesheet">
     <link href="../css/article.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-header" style = "text-align:center;">
-        <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal" style = "float:left; outline:none !important;">
-        <a><img src = "../img/menu.png"></a>
-        </button>
-        <h2 style="font-family: kinfolkFont">KITH</h2>
-      </div>
+    <nav class="article-header">
+        <a href="">HOME</a>
+        <a>&bull;</a>
+        <a href="">ABOUT</a>
+        <a>&bull;</a>
+        <a href="">REGEX</a>
+        <a>&bull;</a>
+        <a href="">SQL</a>
+        <a>&bull;</a>
+        <a href="">MATLAB</a>
     </nav>
-    <div class="article-container">
+    <div class="article-container shift-down-for-header">
       <div class="row">
         <div class="col-2">
           <nav id="article-nav" class="nav nav-pills flex-column">
@@ -36,7 +40,7 @@
             <a class="nav-link" href="#all-together-now">All Together Now</a>
           </nav>
         </div>
-        <div data-spy="scroll" data-target="#article-nav" class="col-8">
+        <div id="article-content" data-spy="scroll" data-target="#article-nav" class="col-8">
           <h2>Regular Expressions Tutorial</h2>
           <div id="introduction">
             <h2>Introduction</h2>
@@ -480,6 +484,9 @@ public static boolean isValidPassword2(String input) {
   </body>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?autorun=true&amp;skin=desert"></script>
   <script>
+  var lastScrollTop = window.pageYOffset;
+  console.log("lastScrollTop!: " + lastScrollTop);
+
   function getGlobalOffsetTop(element) {
     var offset = 0;
     while (element) {
@@ -508,6 +515,33 @@ public static boolean isValidPassword2(String input) {
       anchor.classList.remove("active");
     });
   }
-  window.onscroll = switchActiveState;
+
+  function displayHeader() {
+    var newY = window.pageYOffset;
+
+    var header = document.querySelector(".article-header");
+
+    if (newY > lastScrollTop) {
+      console.log("scrolled down!");
+      lastScrollTop = newY;
+
+      header.classList.add("hide-header");
+      // document.querySelector("#article-nav").classList.remove("shift-down-for-header");
+      // document.querySelector("#article-content").classList.remove("shift-down-for-header");
+      document.querySelector(".article-container").classList.remove("shift-down-for-header");
+      return;
+    }
+
+    header.classList.remove("hide-header");
+    // document.querySelector("#article-nav").classList.add("shift-down-for-header");
+    // document.querySelector("#article-content").classList.add("shift-down-for-header");
+    document.querySelector(".article-container").classList.add("shift-down-for-header");
+
+    lastScrollTop = newY;
+    console.log("scrolled up!");
+  }
+
+  window.addEventListener('scroll', switchActiveState);
+  window.addEventListener('scroll', displayHeader);
   </script>
 </html>

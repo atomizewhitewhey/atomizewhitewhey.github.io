@@ -2,4 +2,17 @@
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;
+  transition: transform 0.2s ease-in-out;
+}
+
+#article-content {
+  margin-top: 15px;
+}
+
+.shift-down-for-header {
+  transform: translateY(4em);
+}
+
+.shift-up-for-header {
+  transform: translateY(-4em);
 }
