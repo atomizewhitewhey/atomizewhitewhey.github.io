@@ -8,89 +8,224 @@
     <title>Article Page</title>
 
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/article-regex.css" rel="stylesheet">
+    <link href="../css/article-header.css" rel="stylesheet">
     <link href="../css/article-navbar.css" rel="stylesheet">
     <link href="../css/article.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-header" style = "text-align:center;">
-        <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal" style = "float:left; outline:none !important;">
-        <a><img src = "../img/menu.png"></a>
-        </button>
-        <h2 style="font-family: kinfolkFont">KITH</h2>
-      </div>
+    <nav class="article-header">
+        <a href="">HOME</a>
+        <a>&bull;</a>
+        <a href="">ABOUT</a>
+        <a>&bull;</a>
+        <a href="">REGEX</a>
+        <a>&bull;</a>
+        <a href="">SQL</a>
+        <a>&bull;</a>
+        <a href="">MATLAB</a>
     </nav>
-    <div class="article-container">
+    <div class="article-container shift-down-for-header"">
       <div class="row">
         <div class="col-2">
           <nav id="article-nav" class="nav nav-pills flex-column">
             <a class="nav-link" href="#introduction">Introduction</a>
-            <a class="nav-link" href="#why-use-regex">Why use Regex?</a>
-            <a class="nav-link" href="#syntax">Syntax</a>
+            <a class="nav-link" href="#why-use-matlab">Why use Matlab?</a>
+            <a class="nav-link" href="#languagefeatures">Language Features</a>
             <nav class="nav flex-column">
-              <a class="nav-link ml-3" href="#character-classes">Character classes</a>
-              <a class="nav-link ml-3" href="#quantifiers">Quantifiers</a>
-              <a class="nav-link ml-3" href="#capturing-groups-backreferences">Capturing Groups & Backreferences</a>
-              <a class="nav-link ml-3" href="#look-ahead-look-behind">Look-ahead & Look-behind</a>
+              <a class="nav-link ml-3" href="#statanalysis">Statistical Analysis</a>
+              <a class="nav-link ml-3" href="#imageprocessing">Image Processing</a>
+              <a class="nav-link ml-3" href="#machinelearning">Machine Learning</a>
             </nav>
-            <a class="nav-link" href="#all-together-now">All Together Now</a>
+            <a class="nav-link" href="#wrappingup">Wrapping Up</a>
           </nav>
         </div>
-        <div data-spy="scroll" data-target="#article-nav" class="col-8">
-          <h2>MATLAB</h2>
-          <h2 id="para-1">Introduction</h2>
-          <p>
+         <div data-spy="scroll" data-target="#article-nav" class="col-8">
+          <div id = "introduction">
+            <h2>MATLAB</h2>
+            <h2 id="para-1">Introduction</h2>
+            <p>
 
-            MATLAB, short for Matrix Laboratory, is a programming language designed for matrix manipulations, implementation of algorithms and the plotting of functions and data.
+              MATLAB, short for Matrix Laboratory, is a programming language designed for matrix manipulations, implementation of algorithms and the plotting of functions and data.
 
-            Its design allows for a much more intuitive understanding of the code, where data points can be easily input into array variables.
+              Its design allows for a much more intuitive understanding of the code, where data points can be easily input into array variables.
 
-          </p>
+            </p>
 
-          <pre><code>
-            x = [1 2 3 4]
-            y = [1 2 3 4]
+            <pre><code>
+              x = [1 2 3 4]
+              y = [1 2 3 4]
+            </code></pre>
+
+
+            <p>
+              There are many pre-existing built-in functions that allow for numerical analysis through MATLAB’s support of Graphical User Interface features, where it is very easy to plot graphs.
+            </p>
+
+            <pre><code>
+              plot(x, y)
+            </code></pre>
+
+            <p>
+              Through these features, MATLAB has found its use in various fields, due to the widespread use of linear algebra in problems like image processing, statistical analysis and machine learning.
+            </p>
+          </div>
+
+          <div id = "why-use-matlab">
+            <h2 id="para-2">So, why MATLAB?</h2>
+            <p>
+              Ultimately, programming languages like Java can in its own right, solve linear algebra problems. However, unlike Java or Python, which both require external imported modules or an extensive amount of code to carry out data analysis and matrix manipulation while providing graphical output, MATLAB overcomes this, by narrowing its scope, thereby lowering the learning curve, and making it much more accessible to users who have no programming experience whatsoever.
+            </p>
+
+            <p>
+              Furthermore, a lot of mathematical operations involving matrices have been included into the syntax to make matrix operations much simpler, by "overloading" mathematical operators such as +, - and even *. To understand what I mean by overloading, let's take a quick glance at some of the language features that MATLAB possesses.
+            </p>
+          </div>
+
+          <div id = "languagefeatures">
+            <h2 id = "para-3">Language Features of MATLAB</h2>
+            <p>
+              When we talk about matrix operations, a few operations come into mind. Firstly, <b>scalar product</b> and secondly <b>vector product</b>. MATLAB was developed in such a way that many of these operations have been made much simpler and have been overloaded into traditional mathematical operations.
+            </p>
+
+            <p>
+              For example, take integer product as an example. As we all know, vector product and integer product mean two completely separate things. As a result, when we use the mathematical operator * on two integers, as opposed to two vectors, the operations that * carries out on the two arguments should be completely different. 
+            </p>
+
+            <p>
+              And, for many programming languages, that is the case, where the mathematical operator * is only defined for numeric types. To have it include matrices, we would have to help code an additional definition, thereby "overloading" it. But, for MATLAB, these mathematical operators come "overloaded" to include the mathematical operations for matrices, making a lot of matrix operations much more intuitive and easy to implement.
+            </p>
+
+            <p>
+              With two example matrices <b>u</b> and <b>v</b>, the table below outlines the basic matrix operations that can be carried out using the overloaded mathematical operands.
+            </p>
+
+            <p>
+              When defining matrices, using a colon ";" would denote the end of the row of the matrix.
+            </p>
+
+          <pre class="prettyprint"><code>
+              u = [3; 1; 4];
+              v = [2 0 -1];
           </code></pre>
 
+            <p>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Matrix Operation</th>
+                    <th>Explanation</th>
+                    <th>Example Usage</th>
+                    <th>Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Vector Addition</td>
+                    <td>Adding two matrices together</td>
+                    <td>v + v</td>
+                    <td>[4 0 -2]</td>
+                  </tr>
+                  <tr>
+                    <td>Vector Subtraction</td>
+                    <td>Subtracting one matrix from another</td>
+                    <td>v - v</td>
+                    <td>[0 0 0]</td>
+                  </tr>
+                  <tr>
+                    <td>Scalar Product</td>
+                    <td>Multiplying a matrix by a scalar value</td>
+                    <td>v * 3</td>
+                    <td>[6 0 -3]</td>
+                  </tr>
+                  <tr>
+                    <td>Vector Product Example 1</td>
+                    <td>Multiplying a 1x3 matrix with a 3x1 matrix</td>
+                    <td>v * u</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>Vector Product Example 2</td>
+                    <td>Multiplying a 3x1 matrix with a 1x3 matrix</td>
+                    <td>u x v</td>
+                    <td>[6 0 -3; <br>2 0 -1;<br>8 0 -4]</td>
+                  </tr>
+                </tbody>
+              </table>
+            </p>
 
-          <p>
-
-            There are many pre-existing built-in functions that allow for numerical analysis through MATLAB’s support of Graphical User Interface features, where it is very easy to plot graphs.
-
-          </p>
-
-          <pre><code>
-            plot(x, y)
-          </code></pre>
-
-          <p>
-            Through these features, MATLAB has found its use in various fields, due to the widespread use of linear algebra in problems like image processing, statistical analysis and machine learning.
-          </p>
 
 
-          <h2 id="para-2">So, why MATLAB?</h2>
-          <p>
-            Ultimately, programming languages like Java can in its own right, solve linear algebra problems. However, unlike Java or Python, which both require external imported modules or an extensive amount of code to carry out data analysis and matrix manipulation while providing graphical output, MATLAB overcomes this, by narrowing its scope, thereby lowering the learning curve, and making it much more accessible to users who have no programming experience whatsoever.
-          </p>
+            <p>
+              So using our understanding of how MATLAB simplifies many matrix operations, let’s take a look at how MATLAB uses these simplifications to make solving problems in the aforementioned fields of
+            </p>
 
-          <p>
-            So, let’s take a look at how MATLAB solves simple problems in the aforementioned fields of
-          </p>
+            <ol>
+              <li>
+                Statistical Analysis
+              </li>
+              <li>
+                Image Processing
+              </li>
+              <li>
+                Machine Learning
+              </li>
+            </ol>
+            <p>
+              much easier and perhaps, show you why MATLAB may be the better alternative when it comes to users who have had no programming experience at all.
+            </p>
+          </div>
 
-          <ol>
-            <li>
-              Image Processing
-            </li>
-            <li>
-              Machine Learning
-            </li>
-          </ol>
-          <p>
-            and see why MATLAB may perhaps, be the better alternative when it comes to users who have had no programming experience at all.
-          </p>
+          <div id = "statanalysis">
+            <h2>Statistical Analysis</h2>
+            <p>
+              MATLAB has many tools that help in statistical analysis. Given a dataset, MATLAB has many inbuilt functions that allow statistics to be very easily computed and then visualized.
+            </p>
+
+            <p>
+              To give an overall perspective of the data, MATLAB can easily compute the mean, median and mode of the dataset. Given a data set, MATLAB provides many very intuitively defined functions.
+            </p>
+
+            <pre><code>
+y = [1 2 3 4 5 6 7 8];
+x = [0 4 5 8 9 3 2 8];
+mean(y);
+mode(y);
+median(y);
+cov(x, y);
+            </code></pre>
+
+            <p>
+              Moving on from functions that compute statistics, let us survey some of the tools that MATLAB provides to easily visualize data. Depending on the relationships shared between your datasets and the type of your datasets, different visualizations are offered by MATLAB from scatterplots, histograms to boxplots. But, for now lets just look at how we can easily plot histograms and scatter plots in addition to the basic line plot. 
+            </p>
+
+          <div class = 'row' style = "margin-bottom: 50px; margin-top: 50px; height: 400px;">
+            <div class = 'col-xs-6 col-md-6' style = "vertical-align: middle; text-align: center margin-bottom:100px;">
+              <div class = "card" style = "height:100%;" >
+                <img class="card-img-top" src="../img/scatter.png">
+                <div class = "card-body">
+                  <p class = "card-text">Scatter Plot<br><pre><code>z = [1 1 1 2 2 2 2 3];<br> scatterplot(z, x);</code></pre> </p>                
+                </div>
+              </div>                
+            </div>
+
+            <div class = 'col-xs-6 col-md-6' style = "vertical-align: middle; text-align: center">
+              <div class = "card" style = "height:100%;">
+                <img class="card-img-top" src="../img/hist.png">
+                <div class = "card-body">
+                  <p class = "card-text">Histogram<br><pre><code>hist(z)</code></pre> </p>            
+                </div>
+              </div>                
+            </div>          
+          </div>
 
 
-          <h2 id="para-3">Image Processing</h2>
+          </div>
+
+
+          <div id = "imageprocessing">
+
+          <h2 id="para-4">Image Processing</h2>
 
           <p>
             All images are just matrices with a width and height corresponding to the number of pixels there are in the image. The value corresponding to the pixel in the matrix represents the intensity of the pixel’s “redness”, “greenness” and “blueness”, with numerical values that lie in the range of 0 to 255.
@@ -164,8 +299,11 @@ imdata = imrotate(imdata, 90);
             Arguably, the MATLAB code is using an extension toolkit which would be equivalent to importing external libraries in Java. However, this image processing toolkit comes pre-installed into many MATLAB versions, and is developed to work seamlessly with MATLAB. On the other hand, for Java, one has to source for an external library online, install it with its dependencies, and with any luck, it may not have any conflicts with your existing code.
           </p>
 
+          </div>
 
-          <h2 id="para-4">Image Pre-processing and Machine Learning</h2>
+          <div id = "machinelearning">
+
+          <h2 id="para-5">Image Pre-processing and Machine Learning</h2>
 
           <p>
             Machine Learning is a field in a computer science that allows computers to solve problems of regression and classification by learning from data. For example, teaching a computer to identify objects in an image or predicting property prices are classification and regression problems respectively.
@@ -176,7 +314,7 @@ imdata = imrotate(imdata, 90);
           </p>
 
           <p>
-            For those who have watched Silicon Valley, let’s say we’re trying to train a computer to be able to identify hot dogs.
+            For those who have watched Silicon Valley, the hit HBO American TV comedy series that is set in its titular name, there is a recurring gag where a character designs an application that can only distinguish between a hotdog and basically anything else. So, let’s say we’re trying to train a computer to be able to do just that : identify hot dogs.
           </p>
 
           <div style = "margin-bottom: 50px; margin-top: 50px;">
@@ -187,18 +325,27 @@ imdata = imrotate(imdata, 90);
             Firstly, to reduce noise in the data by averaging out values across the image, a Gaussian filter is often convolved through the image.
           </p>
 
-          <div class = 'row' style = "margin-bottom: 50px; margin-top: 50px;">
-            <div class = 'col-xs-6 col-md-3' style = "vertical-align: middle; text-align: center">
-              <p style = "vertical-align: middle;">Before Applying Gaussian Filter</p>
+          <div class = 'row' style = "margin-bottom: 50px; margin-top: 50px; height: 300px;">
+            <div class = "col-md-2">
             </div>
-            <div class = 'col-xs-6 col-md-3'>
-              <img src = "../img/hotdog.jpg">
+            <div class = 'col-xs-6 col-md-4' style = "vertical-align: middle; text-align: center">
+              <div class = "card" style="height:100%;">
+                <img class="card-img-top" src="../img/hotdog.jpg">
+                <div class = "card-body">
+                  <p class = "card-text">Before Applying Gaussian Filter</p>
+                </div>
+              </div>                
             </div>
-            <div class = 'col-xs-6 col-md-3' style = "vertical-align: middle; text-align: center">
-              <p style = "vertical-align: middle;">After Applying Gaussian Filter</p>
-            </div>
-            <div class = 'col-xs-6 col-md-3'>
-              <img src = "../img/hotdoggaussian.png">
+
+            <div class = 'col-xs-6 col-md-4' style = "vertical-align: middle; text-align: center">
+              <div class = "card" style="height:100%;">
+                <img class="card-img-top" src="../img/hotdoggaussian.png">
+                <div class = "card-body">
+                  <p class = "card-text">After Applying Gaussian Filter</p>
+                </div>
+              </div>                
+            </div>            
+            <div class = "col-md-2">
             </div>
           </div>
 
@@ -262,20 +409,30 @@ imageblur = imgaussfilt(imdata);
             Secondly, a Sobel-Edge operator may then be used on the image to emphasize the edges of the image, reducing any variance brought about by differing colors of same the object across different images.
           </p>
 
-          <div class = 'row' style = "margin-bottom: 50px; margin-top: 50px;">
-            <div class = 'col-xs-6 col-md-3' style = "vertical-align: middle; text-align: center">
-              <p style = "vertical-align: middle;">Before Applying Sobel Filter</p>
+          <div class = 'row' style = "margin-bottom: 50px; margin-top: 50px; height: 300px;">
+            <div class = "col-md-2">
             </div>
-            <div class = 'col-xs-6 col-md-3' style = "vertical-align: middle; text-align: center">
-              <img src = "../img/hotdoggaussian.png">
+            <div class = 'col-xs-6 col-md-4' style = "vertical-align: middle; text-align: center">
+              <div class = "card" style = "height:100%;">
+                <img class="card-img-top" src="../img/hotdoggaussian.png">
+                <div class = "card-body">
+                  <p class = "card-text">Before Applying Gaussian Filter</p>
+                </div>
+              </div>                
             </div>
-            <div class = 'col-xs-6 col-md-3' style = "vertical-align: middle; text-align: center">
-              <p style = "vertical-align: middle;">After Applying Sobel Filter</p>
+
+            <div class = 'col-xs-6 col-md-4' style = "vertical-align: middle; text-align: center">
+              <div class = "card" style="height:100%;">
+                <img class="card-img-top" src="../img/hotdogsobel.png">
+                <div class = "card-body">
+                  <p class = "card-text">After Applying Gaussian Filter</p>
+                </div>
+              </div>                
+            </div>            
+            <div class = "col-md-2">
             </div>
-            <div class = 'col-xs-6 col-md-3' style = "vertical-align: middle; text-align: center">
-              <img src = "../img/hotdogsobel.png">
-            </div>
-          </div>
+          </div>          
+
 
           <div class = 'row'>
             <div class = 'col-xs-12 col-md-6'>
@@ -369,11 +526,79 @@ ypred = predict(model,otherimage);
           <p>
             And there we have it, a machine learning model that has been trained to identify hot dogs! As we have seen so far, MATLAB really helps to simplify many of the steps involved, essentially reducing the code into the names of the processes we want the images to undergo.
           </p>
+
+        </div>
+        <div id = "wrappingup">
+          <h2>Wrapping Up</h2>
+          <p>Congratulations on reaching the end of this short introduction to MATLAB. Through these examples, I hope that you have been able to understand the power of MATLAB and how it is able to solve many problems despite its simple syntax!</p>
         </div>
         <div class="col-2">
         </div>
       </div>
     </div>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?autorun=true&amp;skin=desert"></script>
+  <script>
+  var lastScrollTop = window.pageYOffset;
+  console.log("lastScrollTop!: " + lastScrollTop);
+
+  function getGlobalOffsetTop(element) {
+    var offset = 0;
+    while (element) {
+      offset += element.offsetTop;
+      element = element.offsetParent;
+    }
+    return offset;
+  }
+
+  function switchActiveState(scrollTop) {
+    var setActive = false;
+
+    var anchors = document.querySelectorAll("#article-nav a");
+    anchors.forEach(function(anchor) {
+      var section = document.querySelector(anchor.getAttribute("href"));
+
+      var offset = getGlobalOffsetTop(section);
+
+      if (offset - 100 <= document.body.scrollTop
+        && offset - 100 + section.clientHeight >= document.body.scrollTop) {
+        anchor.classList.add("active");
+        setActive = true;
+        return;
+      }
+
+      anchor.classList.remove("active");
+    });
+  }
+
+  function displayHeader() {
+    var newY = window.pageYOffset;
+
+    var header = document.querySelector(".article-header");
+
+    if (newY > lastScrollTop) {
+      console.log("scrolled down!");
+      lastScrollTop = newY;
+
+      header.classList.add("hide-header");
+      // document.querySelector("#article-nav").classList.remove("shift-down-for-header");
+      // document.querySelector("#article-content").classList.remove("shift-down-for-header");
+      document.querySelector(".article-container").classList.remove("shift-down-for-header");
+      return;
+    }
+
+    header.classList.remove("hide-header");
+    // document.querySelector("#article-nav").classList.add("shift-down-for-header");
+    // document.querySelector("#article-content").classList.add("shift-down-for-header");
+    document.querySelector(".article-container").classList.add("shift-down-for-header");
+
+    lastScrollTop = newY;
+    console.log("scrolled up!");
+  }
+
+  window.addEventListener('scroll', switchActiveState);
+  window.addEventListener('scroll', displayHeader);
+  </script>
+    
 
   </body>
 </html>
