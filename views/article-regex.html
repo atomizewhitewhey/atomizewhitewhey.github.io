@@ -81,10 +81,13 @@ public static boolean isValidPassword1(String input) {
               </div>
             </div>
             <p>
-              The difference in compactness may not be apparent in this case, due to the simplicity of the task. However, note in the code implementation, that it assumed knowledge of certain concepts. These include "type casting" as well as knowing the ASCII value of the letter <code>'\1'</code>. This brings out the core benefit of all DSLs, which is the ability to abstract away details that do not concern the domain specific task, which in this case is just matching character patterns.
+              The difference in compactness may not be apparent in this case, due to the simplicity of the task. However, note in the code implementation, that it assumed knowledge of certain concepts. These include "type casting" as well as knowing the ASCII value of the letter <code>'\1'</code>. This brings out the core benefit of all DSLs, which is the ability to abstract away details that do not concern the domain specific task, which in this case is just matching string patterns.
             </p>
             <p>
-              Now, let us try a more complicated example, password validation! A common password requirement is: Your password should have at least 8 alphanumeric characters. Of which, it consists one uppercase alphabet, one lowercase alphabet AND one digit.
+              Now, let us try a more complicated example, password validation! A common password requirement is:
+            </p>
+            <p class="blockpara">
+              Your password should have at least 8 alphanumeric characters. Your password must consist AT LEAST one uppercase alphabet, one lowercase alphabet AND one digit
             </p>
             <div class="snippet">
               <pre class="prettyprint"><code>
@@ -132,14 +135,14 @@ public static boolean isValidPassword2(String input) {
           <div id="syntax">
             <h2>Syntax</h2>
             <p>
-              Up to this point, we have been discussing and building motivation for using regex in the specific task of string matching. In this section, we will start to discuss about the actual syntax, in other words the rules, of the language. In particular, we will be using a Traditional Non-Determistic Finite Automata (NFA) Regex engine. These terms will make more sense subsequently when we discuss how regexes work behind the scenes.
+              Up to this point, we have been discussing and building motivation for using regex in the specific task of string matching. In this section, we will start to discuss about the actual syntax, in other words the rules, of the language. In particular, we will be using the Traditional Non-Determistic Finite Automata (NFA) Regex engine. This is the same engine supporting regex in Python, Java and is one of the more widely used engine. We will not go into the internals of the engine in this basic tutorial, but a great resource on that would be <a href="http://shop.oreilly.com/product/9780596528126.do" target="_blank">Mastering Regular Expressions, 3rd Edition by O'Reilly Media</a>.
             </p>
             <p>
               The most basic form of a regex is simply matching using a full string. For example, to look for occurences of <code>"foo"</code> in any string, you can simply use the regex <code>foo</code>.
             </p>
-            <blockquote class="blockquote">
-              Try it yourself! Match the string "foo" in "foobar":
-            </blockquote>
+            <p class="blockpara">
+              Try it yourself! Match the string "foo" in "foobar" <a href="https://regex101.com/r/EzxR3f/1" target="_blank">here</a>.
+            </p>
             <p>
               The ability to formulate convoluted string patterns comes from the use of <b>"Metacharacters"</b>. Metacharacters are a set of special characters that affect the way that a pattern is to be matched. These Metacharacters can have different types, depending on their purpose in the regex, which will discuss in the subsequent sections.
             </p>
@@ -448,7 +451,13 @@ public static boolean isValidPassword2(String input) {
           <div id="all-together-now">
             <h2>All Together Now</h2>
             <p>
-              Armed with the general knowledge of syntax, let us now revisit and break down the password validation regex above. To reiterate, the password requirement is: Your password should have at least 8 alphanumeric characters. Of which, it consists one uppercase alphabet, one lowercase alphabet AND one digit. The regex is <code>(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8, }</code>. We can break the regex down into the following parts:
+              Armed with the general knowledge of syntax, let us now revisit and break down the password validation regex above. To reiterate, the password requirement is:
+            </p>
+            <p class="blockpara">
+              Your password should have at least 8 alphanumeric characters. Your password must consist AT LEAST one uppercase alphabet, one lowercase alphabet AND one digit.
+            </p>
+            <p>
+               The regex used was <code>(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8, }</code>. We can break the regex down into the following parts:
             </p>
             <ul>
               <li>Positive Look-ahead <code>(?=.*[a-z])</code></li>
