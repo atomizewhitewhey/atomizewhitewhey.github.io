@@ -15,15 +15,17 @@
   </head>
   <body>
     <nav class="article-header">
-        <a href="">HOME</a>
+        <a href="../index.html">HOME</a>
         <a>&bull;</a>
         <a href="">ABOUT</a>
         <a>&bull;</a>
-        <a href="">REGEX</a>
+        <a href="article-intro.html">DSL</a>
+        <a>&bull;</a>
+        <a href="article-regex.html">REGEX</a>
         <a>&bull;</a>
         <a href="">SQL</a>
         <a>&bull;</a>
-        <a href="">MATLAB</a>
+        <a href="matlab.html">MATLAB</a>
     </nav>
     <div class="article-container shift-down-for-header">
       <div class="row">
@@ -538,68 +540,7 @@ public static Picture sobelEdgeDetector(String fileLoc) {
       </div>
     </div>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?autorun=true&amp;skin=desert"></script>
-  <script>
-  var lastScrollTop = window.pageYOffset;
-  console.log("lastScrollTop!: " + lastScrollTop);
-
-  function getGlobalOffsetTop(element) {
-    var offset = 0;
-    while (element) {
-      offset += element.offsetTop;
-      element = element.offsetParent;
-    }
-    return offset;
-  }
-
-  function switchActiveState(scrollTop) {
-    var setActive = false;
-
-    var anchors = document.querySelectorAll("#article-nav a");
-    anchors.forEach(function(anchor) {
-      var section = document.querySelector(anchor.getAttribute("href"));
-
-      var offset = getGlobalOffsetTop(section);
-
-      if (offset - 100 <= document.body.scrollTop
-        && offset - 100 + section.clientHeight >= document.body.scrollTop) {
-        anchor.classList.add("active");
-        setActive = true;
-        return;
-      }
-
-      anchor.classList.remove("active");
-    });
-  }
-
-  function displayHeader() {
-    var newY = window.pageYOffset;
-
-    var header = document.querySelector(".article-header");
-
-    if (newY > lastScrollTop) {
-      console.log("scrolled down!");
-      lastScrollTop = newY;
-
-      header.classList.add("hide-header");
-      // document.querySelector("#article-nav").classList.remove("shift-down-for-header");
-      // document.querySelector("#article-content").classList.remove("shift-down-for-header");
-      document.querySelector(".article-container").classList.remove("shift-down-for-header");
-      return;
-    }
-
-    header.classList.remove("hide-header");
-    // document.querySelector("#article-nav").classList.add("shift-down-for-header");
-    // document.querySelector("#article-content").classList.add("shift-down-for-header");
-    document.querySelector(".article-container").classList.add("shift-down-for-header");
-
-    lastScrollTop = newY;
-    console.log("scrolled up!");
-  }
-
-  window.addEventListener('scroll', switchActiveState);
-  window.addEventListener('scroll', displayHeader);
-  </script>
-
-
+  <script src="../scripts/article-header.js"></script>
+  <script src="../scripts/article-navbar.js"></script>
   </body>
 </html>
