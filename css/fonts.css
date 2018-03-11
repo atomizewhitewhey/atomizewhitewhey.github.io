@@ -1,0 +1,25 @@
+@font-face {
+	font-family:kiev;
+	src: url("../fonts/KievitOT-Medium.otf");
+}
+@font-face {
+	font-family:kievThin;
+	src: url("../fonts/KievitOT-Thin.otf");
+}
+
+@font-face {
+	font-family:kievLight;
+	src: url("../fonts/KievitOT-Light.otf");
+}
+
+.card-title {
+	font-family: kiev;
+}
+.card-text {
+	font-family: kievLight;
+	color: #8F8E8E;
+}
+
+body {
+  font-family: kiev;
+}
