@@ -23,3 +23,13 @@
 body {
   font-family: kiev;
 }
+
+a:hover {
+	text-decoration: underline;
+	color:#DBDBDB;
+}
+
+a {
+	text-decoration: none;
+	color: #A7A7A7;;
+}
