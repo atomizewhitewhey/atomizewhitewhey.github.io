@@ -1,0 +1,23 @@
+.article-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: black;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  transition: top 0.2s ease-in-out;
+  z-index: 1000;
+}
+
+.hide-header {
+  top: -4em;
+}
+
+.article-header:nth-child(odd) {
+  color: white;
+}
+
+.article-header a {
+  margin: 1em;
+}
