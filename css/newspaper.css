@@ -1,0 +1,38 @@
+.header {
+	width:100%;
+	height:5%;
+	text-align: center;
+	padding:1%;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+.card-img-hide-overflow-div {
+  overflow: hidden;
+}
+
+.card-img-hide-overflow-div img {
+  min-height:100%;
+  min-width:100%;
+}
+
+.card-block {
+  padding: 20px;
+}
+
+.card-anchor {
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+}
+
+@media (min-width: 768px){
+    .navbar-nav{
+        float:none;
+        margin: 0 auto;
+        display: table;
+        table-layout: fixed;
+    }
+}
