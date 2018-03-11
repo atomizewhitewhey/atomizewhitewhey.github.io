@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Article Page</title>
+
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/article-intro.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="banner-div">
+      <img class="banner-image" src="../img/wordcloud.jpg">
+    </div>
+    <div class="article-container">
+      <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-8">
+          <h1>Introduction</h1>
+          <p>Introduction to Domain Specific Languages</p>
+          <p>
+            DSLs are popular for two main reasons:
+            <ul>
+              <li>Improving productivity for developers in the specified domain</li>
+              <li>Improving communication between developers and domain experts</li>
+            </ul>
+          </p>
+          <p>
+            Using appropriate DSLs will make it easier to process and understand a complicated block of code, thus improving the productivity for those who work with it. DSLs will often use terms that are hugely related to the specific domain. This makes it easier to communicate with domain experts, as code blocks are now more descriptive using domain-specific terms that domain experts can understand.
+          </p>
+          <p>
+            To show the difference between DSLs and General Programming Languages (GPL), we can compare the capabilities/computational power of those two types of languages. In terms of computational ability, we can say in general that DSLs are a subset of GPLs. To give further backing to this statement, we have to bring in the concept of Turing Completeness.
+          </p>
+          <h1>Turing Completeness and DSLs</h1>
+          <p>
+            Formally in the context of programming languages, we say that a language is Turing Complete if it can be used to simulate any Turing Machine. What that means in practical terms is that given any computer algorithm, a Turing Complete language can be used to construct a machine that is capable of simulating the algorithm. Knowing that something is Turing Complete actually has impactful implications. It implies that EVERY plausible design for a computing device, no matter how advanced, can be emulated using a Turing Machine. This claim is sometimes referred to as the Church-Turing thesis.
+          </p>
+          <p>
+            In contrast to GPLs which are mostly Turing Complete, DSLs are mostly <b>NOT</b> Turing Complete. This stems from the fact that DSLs do not need to be Turing Complete to serve its main purpose of supporting domain-specific tasks. As such, designers of DSLs do not prioritise Turing Completeness as a goal when creating the language. And for good reason as well! Turing Completeness is a feature that particularly concerns General Programming Languages. This is because of the added flexibility it gives to the general users, whose tasks span a wide range. While the ability to simulate any logic flow may sound nice, it may not be of a particular focus when designing Domain Specific Languages. In particular, the purpose of a DSL is to support the possible logic flows that stem from a specific domain. Implementing various excess features to make a language Turing Complete may introduce potential pitfalls and add verbosity without contributing much to its main purpose.
+          </p>
+          <p>
+            To exemplify how Turing Completeness might prove to introduce more hindrance than convenience, we must first revisit in detail some of the implicatons of being Turing Complete. In this case, we will need to know about the Halting Problem. The Halting Problem is the problem of determining whether a program will eventually finish running or continue to run forever. In 1936, Alan Turing proved that it is impossible to solve the Halting Problem for Turing Machines. This means that it is impossible to predict computationally whether a Turing Machine will terminate (halt) once it runs. The following example will give a concrete example on why this property may not be desirable in DSLs.
+          </p>
+          <p>
+             Now, going to the specific task of matching strings, users should always expect a match result when given a search pattern. However, if the DSL used to match strings is Turing Complete, it implies the Halting Problem as mentioned above. As such, Turing Completeness of a DSL might cause it to deviate from its original purpose.
+           </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
