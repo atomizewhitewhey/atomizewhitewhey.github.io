@@ -28,6 +28,9 @@
         <a>&bull;</a>
         <a href="matlab.html">MATLAB</a>
     </nav>
+    <div class="banner-div">
+      <img class="banner-image" src="../img/nothotdog.jpg">
+    </div>
     <div class="article-container shift-down-for-header">
       <div class="row">
         <div class="col-2">
@@ -55,9 +58,9 @@
 
             </p>
 
-            <pre><code>
-            x = [1 2 3 4]
-            y = [1 2 3 4]
+            <pre class = "prettyprint"><code>
+x = [1 2 3 4]
+y = [1 2 3 4]
             </code></pre>
 
 
@@ -65,8 +68,8 @@
               There are many pre-existing built-in functions that allow for numerical analysis through MATLAB’s support of Graphical User Interface features, where it is very easy to plot graphs.
             </p>
 
-            <pre><code>
-            plot(x, y)
+            <pre class = "prettyprint"><code>
+plot(x, y)
             </code></pre>
 
             <p>
@@ -108,8 +111,8 @@
             </p>
 
           <pre class="prettyprint"><code>
-              u = [3; 1; 4];
-              v = [2 0 -1];
+u = [3; 1; 4];
+v = [2 0 -1];
           </code></pre>
 
             <p>
@@ -241,10 +244,8 @@ cov(x, y);
             <p>
               So, let’s see how MATLAB stands against Java when it comes to problems like image rotation and changing images to become grayscale.
             </p>
-
-            <div class = 'row'>
-              <div class = 'col-xs-12 col-md-6'>
-                <pre class="prettyprint"><code>
+            <div class="snippet">
+              <pre class="prettyprint"><code>
 public static Picture rotate(String fileLoc, String degree) {
 Picture p = Utils.loadPicture(fileLoc);
 int height = p.getHeight();
@@ -287,16 +288,19 @@ if (degree.equals("90")) {
     System.out.println("Degree entered is not valid");
     return null;
 }
-                </code></pre>
+               </code></pre>
+              <div class="valigncenter vsdiv">
+                <p>V.S.</p>
               </div>
-
-              <div class = 'col-xs-12 col-md-6'>
+              <div class="valigncenter">
                 <pre class="prettyprint"><code>
-  imdata = imread(“file.jpg”);
-  imdata = imrotate(imdata, 90);
+imdata = imread(“file.jpg”);
+imdata = imrotate(imdata, 90);
                 </code></pre>
               </div>
             </div>
+
+
 
             <p>
               Arguably, the MATLAB code is using an extension toolkit which would be equivalent to importing external libraries in Java. However, this image processing toolkit comes pre-installed into many MATLAB versions, and is developed to work seamlessly with MATLAB. On the other hand, for Java, one has to source for an external library online, install it with its dependencies, and with any luck, it may not have any conflicts with your existing code.
@@ -352,9 +356,8 @@ if (degree.equals("90")) {
               </div>
             </div>
 
-            <div class = 'row'>
-              <div class = 'col-xs-12 col-md-6'>
-                <pre class="prettyprint"><code>
+            <div class="snippet">
+              <pre class="prettyprint"><code>
 public static Picture gaussianFilter(Picture p) {
     int height = p.getHeight();
     int width = p.getWidth();
@@ -397,13 +400,15 @@ public static Picture gaussianFilter(Picture p) {
     return n;
 
 }
-                </code></pre>
+     
+               </code></pre>
+              <div class="valigncenter vsdiv">
+                <p>V.S.</p>
               </div>
-
-              <div class = 'col-xs-12 col-md-6'>
+              <div class="valigncenter">
                 <pre class="prettyprint"><code>
-  imdata = imread(“file.jpg”);
-  imageblur = imgaussfilt(imdata);
+imdata = imread(“file.jpg”);
+imageblur = imgaussfilt(imdata);
                 </code></pre>
               </div>
             </div>
@@ -419,7 +424,7 @@ public static Picture gaussianFilter(Picture p) {
                 <div class = "card" style = "height:100%;">
                   <img class="card-img-top" src="../img/hotdoggaussian.png">
                   <div class = "card-body">
-                    <p class = "card-text">Before Applying Gaussian Filter</p>
+                    <p class = "card-text">Before Applying Sobel Filter</p>
                   </div>
                 </div>
               </div>
@@ -428,7 +433,7 @@ public static Picture gaussianFilter(Picture p) {
                 <div class = "card" style="height:100%;">
                   <img class="card-img-top" src="../img/hotdogsobel.png">
                   <div class = "card-body">
-                    <p class = "card-text">After Applying Gaussian Filter</p>
+                    <p class = "card-text">After Applying Sobel Filter</p>
                   </div>
                 </div>
               </div>
@@ -436,10 +441,8 @@ public static Picture gaussianFilter(Picture p) {
               </div>
             </div>
 
-
-            <div class = 'row'>
-              <div class = 'col-xs-12 col-md-6'>
-                <pre class="prettyprint"><code>
+            <div class="snippet">
+              <pre class="prettyprint"><code>
 public static Picture sobelEdgeDetector(String fileLoc) {
     Picture p = Transformations.grayscale(fileLoc);
     int height = p.getHeight();
@@ -487,13 +490,15 @@ public static Picture sobelEdgeDetector(String fileLoc) {
 
     return n;
 }
-                </code></pre>
+     
+               </code></pre>
+              <div class="valigncenter vsdiv">
+                <p>V.S.</p>
               </div>
-
-              <div class = 'col-xs-12 col-md-6'>
+              <div class="valigncenter">
                 <pre class="prettyprint"><code>
-  imdata = imread(“file.jpg”);
-  imagesobel = edge(I,'sobel');
+imdata = imread(“file.jpg”);
+imagesobel = edge(I,'sobel');
                 </code></pre>
               </div>
             </div>
