@@ -1,2 +1,3 @@
 Domain Specific Language - Martin Fowler
 Mastering Regular Expressions - O'Reilly Media
+Introduction to the Theory of Computation, 3rd Edition - Michael Sipser
