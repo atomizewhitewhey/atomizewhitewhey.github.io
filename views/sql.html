@@ -25,13 +25,13 @@
   <nav class="article-header">
       <a href="../index.html">HOME</a>
       <a>&bull;</a>
-      <a href="">ABOUT</a>
+      <a href="../index.html#about">ABOUT</a>
       <a>&bull;</a>
       <a href="article-intro.html">DSL</a>
       <a>&bull;</a>
       <a href="article-regex.html">REGEX</a>
       <a>&bull;</a>
-      <a href="">SQL</a>
+      <a href="sql.html">SQL</a>
       <a>&bull;</a>
       <a href="matlab.html">MATLAB</a>
   </nav>
@@ -151,7 +151,7 @@
         <br>
         <div class = "col-5">
         <pre class = "prettyprint"><code>
-            
+
 public Car{
 
   private Chassis chassis;
@@ -213,17 +213,17 @@ public Chassis{
             import javax.persistence.EntityManagerFactory;
             import javax.persistence.Persistence;
             import javax.persistence.Query;
-            
+
             public class JPQLTest {
                public static void main( String[] args ) {
-               
+
                   EntityManagerFactory factory = Persistence.createEntityManagerFactory( "Eclipselink_JPA" );
                   EntityManager entitymanager = factory.createEntityManager();
-            
+
                   //Generates query and retrieves results
                   Query query = entitymanager.createQuery("SELECT c.owner from Car c");
                   List&ltString&gt owners = query.getResultList();
-            
+
                   System.out.println("Owners: ");
                   for(String owner:owners) {
                      System.out.println(owner);
@@ -235,14 +235,14 @@ public Chassis{
         <code>
             import java.sql.*;
 
-            public class SQLTest {           
+            public class SQLTest {
                 public static void main (String[] args) {
                     try {
                         String url = "https://localhost:3330"; //Url of Database
                         Connection connection = DriverManager.getConnection(url,"","");
                         Statement statement = connection.createStatement();
                         ResultSet rs;
-             
+
                         rs = statement.executeQuery("SELECT Onwer.Car from Car");
 
                         while ( rs.next() ) {
@@ -258,7 +258,7 @@ public Chassis{
             }
         </code>
         <p>
-          Although in terms of similar length, as we recall from earlier, the JPQL will have to be translated into an SQL query before being submitted to the database whereas the SQL can be directly queried to the database and requires no modification. 
+          Although in terms of similar length, as we recall from earlier, the JPQL will have to be translated into an SQL query before being submitted to the database whereas the SQL can be directly queried to the database and requires no modification.
           As a result when dealing with larger amounts of data, the translation time will need to taken into account when dealing with data unlike SQL and can slow down the effectiveness of JPQL despite its advantages to deal with Objects.
         </p>
 
@@ -268,7 +268,7 @@ public Chassis{
         <p>
 
           Due to the rapidly increasing role of Big Data and its variety and volume, SQL will contribute more to the handling of this
-          data. 
+          data.
           It is modular in nature and can be deployed to be run on servers to enable parallel processing to occur and
           to minimise the network traffic like other functional programming languages. This allows the analysis of large amounts of data to be completed in a shorter time frame enabling the processing of the data to be more efficent.
           As result of its efficiency, it is widely used in generic programming languages as a package rather than generate its own query module.
