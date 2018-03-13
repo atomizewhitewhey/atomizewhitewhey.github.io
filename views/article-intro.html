@@ -56,12 +56,37 @@
           <p>
             In contrast to GPLs which are mostly Turing Complete, DSLs are mostly <b>NOT</b> Turing Complete. This stems from the fact that DSLs do not need to be Turing Complete to serve its main purpose of supporting domain-specific tasks. As such, designers of DSLs do not prioritise Turing Completeness as a goal when creating the language. And for good reason as well! Turing Completeness is a feature that particularly concerns General Programming Languages. This is because of the added flexibility it gives to the general users, whose tasks span a wide range. While the ability to simulate any logic flow may sound nice, it may not be of a particular focus when designing Domain Specific Languages. In particular, the purpose of a DSL is to support the possible logic flows that stem from a specific domain. Implementing various excess features to make a language Turing Complete may introduce potential pitfalls and add verbosity without contributing much to its main purpose.
           </p>
+          <h1>Turing Completeness and Regular Expressions</h1>
           <p>
             To exemplify how Turing Completeness might prove to introduce more hindrance than convenience, we must first revisit in detail some of the implicatons of being Turing Complete. In this case, we will need to know about the Halting Problem. The Halting Problem is the problem of determining whether a program will eventually finish running or continue to run forever. In 1936, Alan Turing proved that it is impossible to solve the Halting Problem for Turing Machines. This means that it is impossible to predict computationally whether a Turing Machine will terminate (halt) once it runs. The following example will give a concrete example on why this property may not be desirable in DSLs.
           </p>
           <p>
              Now, going to the specific task of matching strings, users should always expect a match result when given a search pattern. However, if the DSL used to match strings is Turing Complete, it implies the Halting Problem as mentioned above. As such, Turing Completeness of a DSL might cause it to deviate from its original purpose.
            </p>
+           <h1>What Next</h1>
+           <p>
+             On this website, we aim to allow you to familiarise yourselves with popular DSLs. This is to allow you to get an idea of how DSLs are implemented and used in real-world context. With that in mind, we chose 3 of the most common DSLs used by programmers of all levels: Regular Expressions (regex), Matrix Laboratory (MATLAB) and Structured Query Language (SQL). Below, you can find short summaries on their respective articles.
+           </p>
+           <ul>
+             <li>
+               <b>
+                  <a href="article-regex.html">Regular Expressions (regex)</a>
+               </b>
+             </li>
+             <p>
+               In this article, we aim to get readers involved in implementing their own regexes. This is done through a straight-forward tutorial on the rules coupled with clear examples. This tutorial assumes no prior programming experience, particularly due to the specificity of its features to the domain of pattern matching.
+             </p>
+             <li>
+               <b>
+                  <a href="matlab.html">Matrix Laboratory (MATLAB)</a>
+               </b>
+             </li>
+             <li>
+               <b>
+                  <a href="sql.html">Structured Query Language (SQL)</a>
+               </b>
+             </li>
+           </ul>
         </div>
       </div>
     </div>

@@ -9,13 +9,10 @@ function displayHeader() {
     lastScrollTop = newY;
 
     header.classList.add("hide-header");
-    document.querySelector(".article-container").classList.remove("shift-down-for-header");
     return;
   }
 
   header.classList.remove("hide-header");
-  document.querySelector(".article-container").classList.add("shift-down-for-header");
-
   lastScrollTop = newY;
 }
 

@@ -9,14 +9,6 @@
   margin-top: 15px;
 }
 
-.shift-down-for-header {
-  transform: translateY(4em);
-}
-
-.shift-up-for-header {
-  transform: translateY(-4em);
-}
-
 .banner-div {
   display: flex;
   min-height: 100%;
