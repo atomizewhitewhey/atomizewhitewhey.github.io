@@ -21,3 +21,20 @@
 .article-header a {
   margin: 1em;
 }
+
+.article-header-stationary {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  background-color: white;
+  z-index: 1000;
+}
+
+.article-header-stationary:nth-child(odd) {
+  color: white;
+}
+
+.article-header-stationary a {
+  margin: 1em;
+}
