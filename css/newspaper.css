@@ -28,6 +28,21 @@
   left: 0;
 }
 
+#about-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#about-row .col-3 {
+  margin-left: 2em;
+  margin-right: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.25rem;
+}
+
 @media (min-width: 768px){
     .navbar-nav{
         float:none;
