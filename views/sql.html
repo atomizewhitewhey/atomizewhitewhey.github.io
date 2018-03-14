@@ -13,71 +13,58 @@
 
   <title>SQL and Databases</title>
 
-    <link href="../lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/article-regex.css" rel="stylesheet">
-    <link href="../css/article-header.css" rel="stylesheet">
-    <link href="../css/article-navbar.css" rel="stylesheet">
-    <link href="../css/article.css" rel="stylesheet">
-    <link href="../css/fonts.css" rel="stylesheet">
+  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mystyles.css" rel="stylesheet">
+  <link href="css/article.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="article-header">
-      <a href="../index.html">HOME</a>
-      <a>&bull;</a>
-      <a href="../index.html#about">ABOUT</a>
-      <a>&bull;</a>
-      <a href="article-intro.html">DSL</a>
-      <a>&bull;</a>
-      <a href="article-regex.html">REGEX</a>
-      <a>&bull;</a>
-      <a href="sql.html">SQL</a>
-      <a>&bull;</a>
-      <a href="matlab.html">MATLAB</a>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header" style="text-align:center;">
+      <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal" style="float:left; outline:none !important;">
+        <a>
+          <img src="img/menu.png">
+        </a>
+      </button>
+      <h2 style="font-family: kinfolkFont">KITH</h2>
+    </div>
   </nav>
-  <div class="banner-div">
-    <img class="banner-image" src="../img/sql.png">
-  </div>
- <div class="article-container">
-      <div class="row">
-        <div class="col-2">
-          <nav id="article-nav" class="nav nav-pills flex-column">
-            <a class="nav-link" href="#introduction">Introduction</a>
-            <a class="nav-link" href="#structuredifferences">Structure Differences</a>
-            <a class="nav-link" href="#sqlvsjpql">SQL vs JPQL</a>
-            <a class="nav-link" href="#bigdata">Big Data</a>
-          </nav>
-        </div>
-        <div data-spy="scroll" data-target="#article-nav" class="col-8">
-        <div id = "introduction">
-          <h2>SQL and Databases</h2>
-          <h2 id="para-1">Introduction</h2>
-          <p>
-            SQL was developed as a Domain Specific Language (DSL) to handle large amounts of relational data quickly and effectively.
-            It was first used at IBM to manipulate System R in 1970s and its use has significantly grown over the years. Due
-            to the variability of generic multipurpose languages, they may not have the optimal algorithms for processing this
-            type of data in such large quantities. SQL still has the main feature of other programming languages, but it has
-            aspects that directly promote the purpose of the language such as being easily transferable between operating systems.
-            In addition, its syntax is relatively straightforward and so can be interpreted easily by its operators.
-          </p>
-        </div>
+  <div class="container article-container">
+    <div class="row">
+      <div class="col-2">
+        <nav id="article-nav" class="navbar" style="position:sticky;top:10px;justify-content:center">
+          <a href="#">Navbar</a>
+          <a href="#para-1">Introduction</a>
+          <a href="#para-2">Generic Structural Differences</a>
+          <a href="#para-3">SQL vs JPQL</a>
+          <a href="#para-4">Turing Completeness</a>          
+          <a href="#para-5">Big Data</a>
+        </nav>
+      </div>
+      <div data-spy="scroll" data-target="#article-nav" class="col">
+        <h2>SQL and Databases</h2>
+        <h2 id="para-1">Introduction</h2>
+        <p>
+          SQL was developed as a Domain Specific Language (DSL) to handle large amounts of relational data quickly and effectively.
+          It was first used at IBM to manipulate System R in 1970s and its use has significantly grown over the years. Due
+          to the variability of generic multipurpose languages, they may not have the optimal algorithms for processing this
+          type of data in such large quantities. SQL still has the main feature of other programming languages, but it has
+          aspects that directly promote the purpose of the language such as being easily transferable between operating systems.
+          In addition, its syntax is relatively straightforward and so can be interpreted easily by its operators.
+        </p>
 
         <div style="margin-bottom: 50px; margin-top: 50px;">
           <img src="../img/sql_1.png" style="display: block; margin-right: auto; margin-left: auto;">
         </div>
 
-        <div id = "structuredifferences">
-
         <h2 id="para-2">Generic Structural Differences</h2>
-          <p>
+        <p>
 
-            Unlike other generic programming languages, SQL will only deal with databases and so will have a modular structure that will refine searches within a table.
-            Other languages will have a more generic structure built of a collection of functions or classes of objects.
+          Unlike other generic programming languages, SQL will only deal with databases and so will have a modular structure that will refine searches within a table.
+          Other languages will have a more generic structure built of a collection of functions or classes of objects.
 
-          </p>
-        </div>
+        </p>
 
-        <div id = "sqlvsjpql">
         <h2 id="para-3">SQL vs JPQL</h2>
         <p>
           Java contains its own query language - Java Persistence Query Language (JPQL) which allows it to use the object orientation
@@ -149,38 +136,36 @@
           Whereas stored using a object orientated form (Java):
         </p>
         <br>
-        <div class = "col-5">
-        <pre class = "prettyprint"><code>
+        <code>
+            
+            public Car{
 
-public Car{
+              private Chassis chassis;
+              private String owner;
 
-  private Chassis chassis;
-  private String owner;
-
-  @Override
-  public int hashcode(){
-     ...
-  }
-
-}
-
-public Chassis{
-
-  private Car car;
-
-  public Chassis(Car car){
-    this.car = car;
-    ...
-  }
-
-  @Override
-  public int hashcode(){
-     ...
-  }
+              @Override
+              public int hashcode(){
+                 ...
+              }
 
             }
-        </code></pre>
-      </div>
+
+            public Chassis{
+
+              private Car car;
+
+              public Chassis(Car car){
+                this.car = car;
+                ...
+              }
+
+              @Override
+              public int hashcode(){
+                 ...
+              }
+
+            }
+          </code>
         <br>
         <br>
         <p>
@@ -213,17 +198,17 @@ public Chassis{
             import javax.persistence.EntityManagerFactory;
             import javax.persistence.Persistence;
             import javax.persistence.Query;
-
+            
             public class JPQLTest {
                public static void main( String[] args ) {
-
+               
                   EntityManagerFactory factory = Persistence.createEntityManagerFactory( "Eclipselink_JPA" );
                   EntityManager entitymanager = factory.createEntityManager();
-
+            
                   //Generates query and retrieves results
                   Query query = entitymanager.createQuery("SELECT c.owner from Car c");
                   List&ltString&gt owners = query.getResultList();
-
+            
                   System.out.println("Owners: ");
                   for(String owner:owners) {
                      System.out.println(owner);
@@ -235,14 +220,14 @@ public Chassis{
         <code>
             import java.sql.*;
 
-            public class SQLTest {
+            public class SQLTest {           
                 public static void main (String[] args) {
                     try {
                         String url = "https://localhost:3330"; //Url of Database
                         Connection connection = DriverManager.getConnection(url,"","");
                         Statement statement = connection.createStatement();
                         ResultSet rs;
-
+             
                         rs = statement.executeQuery("SELECT Onwer.Car from Car");
 
                         while ( rs.next() ) {
@@ -258,17 +243,22 @@ public Chassis{
             }
         </code>
         <p>
-          Although in terms of similar length, as we recall from earlier, the JPQL will have to be translated into an SQL query before being submitted to the database whereas the SQL can be directly queried to the database and requires no modification.
+          Although in terms of similar length, as we recall from earlier, the JPQL will have to be translated into an SQL query before being submitted to the database whereas the SQL can be directly queried to the database and requires no modification. 
           As a result when dealing with larger amounts of data, the translation time will need to taken into account when dealing with data unlike SQL and can slow down the effectiveness of JPQL despite its advantages to deal with Objects.
         </p>
+        <h2 id="para-4">Turing Completeness</h2>
+        <p>
 
-      </div>
-      <div id = "bigdata">
-        <h2 id="para-4">Big Data</h2>
+          SQL because of its specialised used has limited functionality compared to other generic programming languages. Therefore it is not Turing complete as it cannot fulfil all the functionality of a Turing Machine.
+          However, there are other languages that derive from SQL such as PL/SQL and T-SQL that are Turing complete as they provide further functionality that make them more like other generic programming languages.
+
+
+        </p>
+        <h2 id="para-5">Big Data</h2>
         <p>
 
           Due to the rapidly increasing role of Big Data and its variety and volume, SQL will contribute more to the handling of this
-          data.
+          data. 
           It is modular in nature and can be deployed to be run on servers to enable parallel processing to occur and
           to minimise the network traffic like other functional programming languages. This allows the analysis of large amounts of data to be completed in a shorter time frame enabling the processing of the data to be more efficent.
           As result of its efficiency, it is widely used in generic programming languages as a package rather than generate its own query module.
@@ -276,12 +266,8 @@ public Chassis{
 
         </p>
       </div>
-      </div>
     </div>
   </div>
-  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?autorun=true&amp;skin=desert"></script>
-  <script src="../scripts/article-header.js"></script>
-  <script src="../scripts/article-navbar.js"></script>
 </body>
 
 </html>
