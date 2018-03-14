@@ -11,12 +11,9 @@
     <link href="../css/article.css" rel="stylesheet">
     <link href="../css/article-header.css" rel="stylesheet">
     <link href="../css/fonts.css" rel="stylesheet">
-<!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <nav class="article-header">
+    <nav class="article-header-stationary">
         <a href="../index.html">HOME</a>
         <a>&bull;</a>
         <a href="../index.html#about">ABOUT</a>
@@ -30,33 +27,86 @@
         <a href="matlab.html">MATLAB</a>
     </nav>
 
-    <div class="article-container" style = "height:50%; margin-top: 20%;">
+    <div class="container" style = "margin-top:10%;">
+      <div class = "row justify-content-sm-center">
+        <div class = "col-xs-12 col-sm-10">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#krispal" role="tab" aria-controls="krispal"><h3>Krispal</h3></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#hadrian" role="tab" aria-controls="hadrian"><h3>Hadrian</h3></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#matthew" role="tab" aria-controls="matthew"><h3>Matthew</h3></a>
+              </li>
+            </ul>
 
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="krispal" role="tabpanel">
+                <div class = "row">
+                  <div class = "col-md-4 col-sm-12">
+                    <div class="card" style = "height:200px; border:none;">
+                      <img class="rounded-circle" src="../img/user.png" alt="Card image cap" style = "height:200px; width:200px; border:1px solid #E1E1E1">
+                    </div>
+                  </div>
+                  <div class ="col-md-2">
+                  </div>
+                  <div class = "col-md-6 col-sm-12">
+                    <div class = "container" style="padding:20px;">
+                      <p>
+                        Hello! I'm Krispal!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="hadrian" role="tabpanel">
+                <div class = "row">
+                  <div class = "col-md-4 col-sm-12">
+                    <div class="card" style = "height:200px; border:none;">
+                      <img class="rounded-circle" src="../img/user.png" alt="Card image cap" style = "height:200px; width:200px; border:1px solid #E1E1E1">
+                    </div>
+                  </div>
+                  <div class ="col-md-2">
+                  </div>
+                  <div class = "col-md-6 col-sm-12">
+                    <div class = "container" style="padding:20px;">
+                      <p>
+                        Hello! I'm Hadrian!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="matthew" role="tabpanel">
+                <div class = "row">
+                  <div class = "col-md-4 col-sm-12">
+                    <div class="card" style = "height:200px; border:none;">
+                      <img class="rounded-circle" src="../img/user.png" alt="Card image cap" style = "height:200px; width:200px; border:1px solid #E1E1E1">
+                    </div>
+                  </div>
+                  <div class ="col-md-2">
+                  </div>
+                  <div class = "col-md-6 col-sm-12">
+                    <div class = "container" style="padding:20px;">
+                      <p>
+                        Hello! I'm Matthew!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
 
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#krispal" role="tab" aria-controls="krispal">Krispal</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#hadrian" role="tab" aria-controls="hadrian">Hadrian</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#matthew" role="tab" aria-controls="matthew">Matthew</a>
-      </li>
-    </ul>
-
-    <div class="tab-content">
-      <div class="tab-pane fade active" id="krispal" role="tabpanel">...</div>
-      <div class="tab-pane fade" id="hadrian" role="tabpanel">hello</div>
-      <div class="tab-pane fade" id="matthew" role="tabpanel">...</div>
     </div>
 
-    </div>
 
-
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/tether/dist/js/tether.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../scripts/article-header.js"></script>
   </body>
 </html>

@@ -40,3 +40,10 @@ a {
 	height:20px;
 	width:100%;
 }
+
+.tab-pane {
+	padding:50px;
+	border-right: thin solid #E1E1E1;
+	border-left: thin solid #E1E1E1;
+	border-bottom: thin solid #E1E1E1;
+}
