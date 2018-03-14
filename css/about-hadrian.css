@@ -1,0 +1,14 @@
+.about-info-row {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vh;
+}
+
+.about-info-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.about-info-footer a:hover {
+  color: black;
+}
