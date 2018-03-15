@@ -1,3 +1,9 @@
 Domain Specific Language - Martin Fowler
 Mastering Regular Expressions - O'Reilly Media
 Introduction to the Theory of Computation, 3rd Edition - Michael Sipser
+
+Moler, C. (2004). The Origins of MATLAB. Retrieved March 14, 2018, from https://uk.mathworks.com/company/newsletters/articles/the-origins-of-matlab.html
+Blaschke, T., Lang, S., Lorup, E., Strobl, J., & Zeil, P. (2000). Object-oriented image processing in an integrated GIS/remote sensing environment and perspectives for environmental applications. Environmental information for planning, politics and the public, 2, 555-570.
+Wang, W. (2009, April). Reach on Sobel operator for vehicle recognition. In Artificial Intelligence, 2009. JCAI'09. International Joint Conference on (pp. 448-451). IEEE.
+Deng, G., & Cahill, L. W. (1993, November). An adaptive Gaussian filter for noise reduction and edge detection. In Nuclear Science Symposium and Medical Imaging Conference, 1993., 1993 IEEE Conference Record. (pp. 1615-1619). IEEE.
+https://uk.mathworks.com/help/matlab/examples/basic-matrix-operations.html
