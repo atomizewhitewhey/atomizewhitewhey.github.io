@@ -7,3 +7,7 @@ Blaschke, T., Lang, S., Lorup, E., Strobl, J., & Zeil, P. (2000). Object-oriente
 Wang, W. (2009, April). Reach on Sobel operator for vehicle recognition. In Artificial Intelligence, 2009. JCAI'09. International Joint Conference on (pp. 448-451). IEEE.
 Deng, G., & Cahill, L. W. (1993, November). An adaptive Gaussian filter for noise reduction and edge detection. In Nuclear Science Symposium and Medical Imaging Conference, 1993., 1993 IEEE Conference Record. (pp. 1615-1619). IEEE.
 https://uk.mathworks.com/help/matlab/examples/basic-matrix-operations.html
+http://www.oracle.com/technetwork/articles/vasiliev-jpql-087123.html
+http://www.cs.iit.edu/~cs561/cs425/VenkatashSQLIntro/Advantages%20&%20Disadvantages.html
+https://www.systematix.co.uk/12-benefits-of-sql-structured-query-language/
+
