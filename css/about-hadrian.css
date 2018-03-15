@@ -4,6 +4,14 @@
   margin-top: 2vh;
 }
 
+
+.about-info-row p {
+	font-family: kievThin;
+}
+
+.about-info-row li {
+	font-family: kievThin;
+}
 .about-info-footer {
   display: flex;
   justify-content: center;
@@ -11,4 +19,8 @@
 
 .about-info-footer a:hover {
   color: black;
+}
+
+.about-info-side p {
+	font-family:kievThin;
 }

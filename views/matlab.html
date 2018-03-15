@@ -19,7 +19,7 @@
     <nav class="article-header">
         <a href="../index.html">HOME</a>
         <a>&bull;</a>
-        <a href="../index.html#about">ABOUT</a>
+        <a href="about.html">ABOUT</a>
         <a>&bull;</a>
         <a href="article-intro.html">DSL</a>
         <a>&bull;</a>
@@ -32,25 +32,29 @@
     <div class="banner-div">
       <img class="banner-image" src="../img/nothotdog.jpg">
     </div>
+
+    <div class = "container" style = "align-items:center; margin-top:0; height:20%; justify-content: center;">
+    <h1 style = "margin:auto;" align = "center">Making the HotDog Deliberator with MATLAB!</h1>
+    </div>
+
     <div class="article-container">
       <div class="row">
         <div class="col-2">
           <nav id="article-nav" class="nav nav-pills flex-column">
-            <a class="nav-link" href="#introduction">Introduction</a>
-            <a class="nav-link" href="#why-use-matlab">Why use Matlab?</a>
-            <a class="nav-link" href="#languagefeatures">Language Features</a>
+            <a class="nav-link" href="#introduction"><h4>Introduction</h4></a>
+            <a class="nav-link" href="#why-use-matlab"><h4>Why use Matlab?</h4></a>
+            <a class="nav-link" href="#languagefeatures"><h4>Language Features</h4></a>
             <nav class="nav flex-column">
-              <a class="nav-link ml-3" href="#statanalysis">Statistical Analysis</a>
-              <a class="nav-link ml-3" href="#imageprocessing">Image Processing</a>
-              <a class="nav-link ml-3" href="#machinelearning">Machine Learning</a>
+              <a class="nav-link ml-3" href="#statanalysis"><h4>Statistical Analysis</h4></a>
+              <a class="nav-link ml-3" href="#imageprocessing"><h4>Image Processing</h4></a>
+              <a class="nav-link ml-3" href="#machinelearning"><h4>Machine Learning</h4></a>
             </nav>
-            <a class="nav-link" href="#wrappingup">Wrapping Up</a>
+            <a class="nav-link" href="#wrappingup"><h4>Wrapping Up</h4></a>
           </nav>
         </div>
          <div data-spy="scroll" data-target="#article-nav" class="col-8">
-          <div id = "introduction">
-            <h2>MATLAB</h2>
-            <h2 id="para-1">Introduction</h2>
+          <div id = "introduction" style = "margin-bottom: 8%;">
+            <h1 id="para-1">Introduction</h1>
             <p>
 
               MATLAB, short for Matrix Laboratory, is a programming language designed for matrix manipulations, implementation of algorithms and the plotting of functions and data.
@@ -78,8 +82,8 @@ plot(x, y)
             </p>
           </div>
 
-          <div id = "why-use-matlab">
-            <h2 id="para-2">So, why MATLAB?</h2>
+          <div id = "why-use-matlab" style = "margin-bottom: 8%;">
+            <h1 id="para-2">So, why MATLAB?</h1>
             <p>
               Ultimately, programming languages like Java can in its own right, solve linear algebra problems. However, unlike Java or Python, which both require external imported modules or an extensive amount of code to carry out data analysis and matrix manipulation while providing graphical output, MATLAB overcomes this, by narrowing its scope, thereby lowering the learning curve, and making it much more accessible to users who have no programming experience whatsoever.
             </p>
@@ -89,8 +93,8 @@ plot(x, y)
             </p>
           </div>
 
-          <div id = "languagefeatures">
-            <h2 id = "para-3">Language Features of MATLAB</h2>
+          <div id = "languagefeatures" style = "margin-bottom: 8%;">
+            <h1 id = "para-3">Language Features of MATLAB</h1>
             <p>
               When we talk about matrix operations, a few operations come into mind. Firstly, <b>scalar product</b> and secondly <b>vector product</b>. MATLAB was developed in such a way that many of these operations have been made much simpler and have been overloaded into traditional mathematical operations.
             </p>
@@ -183,8 +187,8 @@ v = [2 0 -1];
             </p>
 
 
-            <div id = "statanalysis">
-              <h2>Statistical Analysis</h2>
+            <div id = "statanalysis" style = "margin-bottom: 15%;">
+              <h1>Statistical Analysis</h1>
               <p>
                 MATLAB has many tools that help in statistical analysis. Given a dataset, MATLAB has many inbuilt functions that allow statistics to be very easily computed and then visualized.
               </p>
@@ -230,9 +234,9 @@ cov(x, y);
             </div>
 
 
-            <div id = "imageprocessing">
+            <div id = "imageprocessing" style = "margin-bottom: 8%;">
 
-            <h2 id="para-4">Image Processing</h2>
+            <h1 id="para-4">Image Processing</h1>
 
             <p>
               All images are just matrices with a width and height corresponding to the number of pixels there are in the image. The value corresponding to the pixel in the matrix represents the intensity of the pixel’s “redness”, “greenness” and “blueness”, with numerical values that lie in the range of 0 to 255.
@@ -309,9 +313,9 @@ imdata = imrotate(imdata, 90);
 
             </div>
 
-            <div id = "machinelearning">
+            <div id = "machinelearning" style = "margin-bottom: 8%;">
 
-            <h2 id="para-5">Image Pre-processing and Machine Learning</h2>
+            <h1 id="para-5">Image Pre-processing and Machine Learning</h1>
 
             <p>
               Machine Learning is a field in a computer science that allows computers to solve problems of regression and classification by learning from data. For example, teaching a computer to identify objects in an image or predicting property prices are classification and regression problems respectively.
@@ -506,7 +510,7 @@ imagesobel = edge(I,'sobel');
 
 
             <p>
-              These two examples of image pre-processing already highlight how compact MATLAB is compared to Java when it comes to matrix manipulation. For the next step of training the machine learning model, the Java code will be omitted as it will be very verbose in contrast with MATLAB since the algorithm is much more complicated than just matrix manipulations.
+              These two examples of image pre-processing already highlight how compact MATLAB is compared to Java when it comes to matrix manipulation. Furthermore, the code for Java as shown below is just a short snippet of the method calls you can use to perform the operation and does not include the code that actually loads the images and runs the operations on them. For the next step of training the machine learning model, the Java code will be omitted as it will be very verbose in contrast with MATLAB since the algorithm is much more complicated than just matrix manipulations.
             </p>
 
             <p>
@@ -538,8 +542,8 @@ imagesobel = edge(I,'sobel');
 
           </div>
         </div>
-        <div id = "wrappingup">
-          <h2>Wrapping Up</h2>
+        <div id = "wrappingup" style = "margin-bottom: 5%;">
+          <h1>Wrapping Up</h1>
           <p>Congratulations on reaching the end of this short introduction to MATLAB. Through these examples, I hope that you have been able to understand the power of MATLAB and how it is able to solve many problems despite its simple syntax!</p>
         </div>
         <div class="col-2">

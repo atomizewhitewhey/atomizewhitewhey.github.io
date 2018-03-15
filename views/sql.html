@@ -32,21 +32,25 @@
     <div class="banner-div">
       <img class="banner-image" src="../img/sql.png">
     </div>
+
+    <div class = "container" style = "align-items:center; margin-top:0; height:20%; justify-content: center;">
+    <h1 style = "margin:auto;" align = "center">The Battle between Java and SQL!</h1>
+    </div>
+
     <div class="article-container">
       <div class="row">
         <div class="col-2">
           <nav id="article-nav" class="nav nav-pills flex-column">
-            <a class="nav-link" href="#introduction">Introduction</a>
-            <a class="nav-link" href="#structuredifferences">Structure Differences</a>
-            <a class="nav-link" href="#relationalvsOO">Relational Data vs Object Orientated Data</a>
-            <a class="nav-link" href="#sqlvsjpql">SQL vs JPQL</a>
-            <a class="nav-link" href="#turingcompleteness">Turing Completeness</a>
-            <a class="nav-link" href="#bigdata">Big Data</a>
+            <a class="nav-link" href="#introduction"><h4>Introduction</h4></a>
+            <a class="nav-link" href="#structuredifferences"><h4>Structure Differences</h4></a>
+            <a class="nav-link" href="#relationalvsOO"><h4>Relational Data vs Object Orientated Data</h4></a>
+            <a class="nav-link" href="#sqlvsjpql"><h4>SQL vs JPQL</h4></a>
+            <a class="nav-link" href="#turingcompleteness"><h4>Turing Completeness</h4></a>
+            <a class="nav-link" href="#bigdata"><h4>Big Data</h4></a>
           </nav>
         </div>
         <div data-spy="scroll" data-target="#article-nav" class="col-8">
-          <div id = "introduction">
-            <h2>SQL and Databases</h2>
+          <div id = "introduction" style = "margin-bottom: 8%;">
             <h2 id="para-1">Introduction</h2>
             <p>
               SQL was developed as a Domain Specific Language (DSL) to handle large amounts of relational data quickly and effectively.
@@ -62,7 +66,7 @@
             <img src="../img/sql_1.png" style="display: block; margin-right: auto; margin-left: auto;">
           </div>
 
-          <div id = "structuredifferences">
+          <div id = "structuredifferences" style = "margin-bottom: 8%;">
             <h2 id="para-2">Generic Structural Differences</h2>
             <p>
               Unlike other generic programming languages, SQL will only deal with databases and so will have a modular structure that will refine searches within a table.
@@ -72,7 +76,7 @@
 
           <div id="relationalvsOO">
             <h2 id="para-3">Relational Data vs Object Orientated Data</h2>
-            <div style="text-align:center">
+            <div style="text-align:center" style = "margin-bottom: 8%;">
                 <img id="imgCont" src="../img/sql_3.png">
                 <img id="imgCont" src="../img/sql_4.png">
             </div>
@@ -161,7 +165,7 @@
            ...
         }
 
-                  }
+      }
                 </code></pre>
               </div>
               <br>
@@ -171,7 +175,7 @@
                 Therefore relational databases are more commonly used especially how the their scaleability is simpler than object oriented databases.
               </p>
             </div>
-            <div id = "sqlvsjpql">
+            <div id = "sqlvsjpql" style = "margin-bottom: 8%;">
               <h2 id="para-4">SQL vs JPQL</h2>
               <p>
                 Java contains its own query language - Java Persistence Query Language (JPQL) which allows it to use the object orientation
@@ -271,14 +275,14 @@
                 As a result when dealing with larger amounts of data, the translation time will need to taken into account when dealing with data unlike SQL and can slow down the effectiveness of JPQL despite its advantages to deal with Objects.
               </p>
           </div>
-          <div id= "turingcompleteness">
+          <div id= "turingcompleteness" style="margin-bottom: 8%;">
             <h2 id="para-5">Turing Completeness</h2>
             <p>
               SQL because of its specialised used has limited functionality compared to other generic programming languages. Therefore it is not Turing complete as it cannot fulfil all the functionality of a Turing Machine.
               However, there are other languages that derive from SQL such as PL/SQL and T-SQL that are Turing complete as they provide further functionality that make them more like other generic programming languages.
             </p>
           </div>
-          <div id= "bigdata">
+          <div id= "bigdata" style = "margin-bottom: 8%;">
             <h2 id="para-6">Big Data</h2>
             <p>
               Due to the rapidly increasing role of Big Data and its variety and volume, SQL will contribute more to the handling of this
