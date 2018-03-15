@@ -26,7 +26,7 @@
   <nav class="article-header">
       <a href="../index.html">HOME</a>
       <a>&bull;</a>
-      <a href="../index.html#about">ABOUT</a>
+      <a href="about.html">ABOUT</a>
       <a>&bull;</a>
       <a href="article-intro.html">DSL</a>
       <a>&bull;</a>
@@ -39,21 +39,27 @@
   <div class="banner-div">
     <img class="banner-image" src="../img/sql.png">
   </div>
+
+
+  <div class = "container" style = "align-items:center; margin-top:0; height:20%; justify-content: center;">
+  <h1 style = "margin:auto;" align = "center">SQL vs Java</h1>
+  </div>
+
+
  <div class="article-container">
       <div class="row">
         <div class="col-2">
           <nav id="article-nav" class="nav nav-pills flex-column">
-            <a class="nav-link" href="#introduction">Introduction</a>
-            <a class="nav-link" href="#structuredifferences">Structure Differences</a>
-            <a class="nav-link" href="#sqlvsjpql">SQL vs JPQL</a>
-            <a class="nav-link" href="#turingcompleteness">Turing Completeness</a>
-            <a class="nav-link" href="#bigdata">Big Data</a>
+            <a class="nav-link" href="#introduction"><h4>Introduction</h4></a>
+            <a class="nav-link" href="#structuredifferences"><h4>Structure Differences</h4></a>
+            <a class="nav-link" href="#sqlvsjpql"><h4>SQL vs JPQL</h4></a>
+            <a class="nav-link" href="#turingcompleteness"><h4>Turing Completeness</h4></a>
+            <a class="nav-link" href="#bigdata"><h4>Big Data</h4></a>
           </nav>
         </div>
         <div data-spy="scroll" data-target="#article-nav" class="col-8">
-        <div id = "introduction">
-          <h2>SQL and Databases</h2>
-          <h2 id="para-1">Introduction</h2>
+        <div id = "introduction" style = "margin-bottom: 8%;">
+          <h1 id="para-1">Introduction</h1>
           <p>
             SQL was developed as a Domain Specific Language (DSL) to handle large amounts of relational data quickly and effectively.
             It was first used at IBM to manipulate System R in 1970s and its use has significantly grown over the years. Due
@@ -68,9 +74,9 @@
           <img src="../img/sql_1.png" style="display: block; margin-right: auto; margin-left: auto;">
         </div>
 
-        <div id = "structuredifferences">
+        <div id = "structuredifferences" style = "margin-bottom: 8%;">
 
-        <h2 id="para-2">Generic Structural Differences</h2>
+        <h1 id="para-2">Generic Structural Differences</h1>
           <p>
 
             Unlike other generic programming languages, SQL will only deal with databases and so will have a modular structure that will refine searches within a table.
@@ -79,8 +85,8 @@
           </p>
         </div>
 
-        <div id = "sqlvsjpql">
-        <h2 id="para-3">SQL vs JPQL</h2>
+        <div id = "sqlvsjpql" style = "margin-bottom: 8%;">
+        <h1 id="para-3">SQL vs JPQL</h1>
         <p>
           Java contains its own query language - Java Persistence Query Language (JPQL) which allows it to use the object orientation
           to be translated and used with relational databases. It does this by transforming the syntax into SQL to handle
@@ -265,8 +271,8 @@ public Chassis{
         </p>
 
       </div>
-      <div id= "turingcompleteness">
-        <h2 id="para-4">Turing Completeness</h2>
+      <div id= "turingcompleteness" style = "margin-bottom: 8%;">
+        <h1 id="para-4">Turing Completeness</h1>
         <p>
 
           SQL because of its specialised used has limited functionality compared to other generic programming languages. Therefore it is not Turing complete as it cannot fulfil all the functionality of a Turing Machine.
@@ -275,8 +281,8 @@ public Chassis{
 
         </p>
       </div>
-      <div id = "bigdata">
-        <h2 id="para-5">Big Data</h2>
+      <div id = "bigdata" style = "margin-bottom: 8%;">
+        <h1 id="para-5">Big Data</h1>
         <p>
 
           Due to the rapidly increasing role of Big Data and its variety and volume, SQL will contribute more to the handling of this

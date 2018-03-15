@@ -18,7 +18,7 @@
     <nav class="article-header">
         <a href="../index.html">HOME</a>
         <a>&bull;</a>
-        <a href="../index.html#about">ABOUT</a>
+        <a href="about.html">ABOUT</a>
         <a>&bull;</a>
         <a href="article-intro.html">DSL</a>
         <a>&bull;</a>
@@ -31,26 +31,31 @@
     <div class="banner-div">
       <img class="banner-image" src="../img/regular_expressions.png">
     </div>
+
+    <div class = "container" style = "align-items:center; margin-top:0; height:20%; justify-content: center;">
+    <h1 style = "margin:auto;" align = "center">Swipe Down to Match Strings with Regex</h1>
+    </div>
+
     <div class="article-container">
       <div class="row">
         <div class="col-2">
           <nav id="article-nav" class="nav nav-pills flex-column">
-            <a class="nav-link" href="#introduction">Introduction</a>
-            <a class="nav-link" href="#why-use-regex">Why use Regex?</a>
-            <a class="nav-link" href="#syntax">Syntax</a>
+            <a class="nav-link" href="#introduction"><h4>Introduction</h4></a>
+            <a class="nav-link" href="#why-use-regex"><h4>Why use Regex?</h4></a>
+            <a class="nav-link" href="#syntax"><h4>Syntax</h4></a>
             <nav class="nav flex-column">
-              <a class="nav-link ml-3" href="#character-classes">Character classes</a>
-              <a class="nav-link ml-3" href="#quantifiers">Quantifiers</a>
-              <a class="nav-link ml-3" href="#capturing-groups-backreferences">Capturing Groups & Backreferences</a>
-              <a class="nav-link ml-3" href="#look-ahead-look-behind">Look-ahead & Look-behind</a>
+              <a class="nav-link ml-3" href="#character-classes"><h4>Character classes</h4></a>
+              <a class="nav-link ml-3" href="#quantifiers"><h4>Quantifiers</h4></a>
+              <a class="nav-link ml-3" href="#capturing-groups-backreferences"><h4>Capturing Groups & Backreferences</h4></a>
+              <a class="nav-link ml-3" href="#look-ahead-look-behind"><h4>Look-ahead & Look-behind</h4></a>
             </nav>
-            <a class="nav-link" href="#all-together-now">All Together Now</a>
+            <a class="nav-link" href="#all-together-now"><h4>All Together Now</h4></a>
           </nav>
         </div>
         <div id="article-content" data-spy="scroll" data-target="#article-nav" class="col-8">
-          <h2>Regular Expressions Tutorial</h2>
-          <div id="introduction">
-            <h2>Introduction</h2>
+<!--           <h2>Regular Expressions Tutorial</h2> -->
+          <div id="introduction" style = "margin-bottom: 8%;">
+            <h1>Introduction</h1>
             <p>Regular Expressions, or regex, is a Domain Specific Language for text processing. More specifically, regex is a language that describes a pattern of characters to search for in a string. For example, To search for files with names that end with <code>".txt"</code>, the regex to enter is <code>".*\.txt"</code></p>
             <p>Regexes are most commonly used in tasks that require text processing. Some of the most notable uses are in:</p>
             <ul>
@@ -65,8 +70,8 @@
               Regex is an extremely powerful language when mastered, due to the room for optimisatiom. Since such processes are extremely common in companies from most industries, many companies actively list regex as a pre-requisite for their developers!
             </p>
           </div>
-          <div id="why-use-regex">
-            <h2>Why use Regex?</h2>
+          <div id="why-use-regex" style = "margin-bottom: 8%;">
+            <h1>Why use Regex?</h1>
             <p>
               Before we proceed onto introducing the syntax (rules) of regexes, I would like to take some time to highlight the strengths of regexes. Hopefully, this section will generate more motivation to master the language.
             </p>
@@ -143,8 +148,8 @@ public static boolean isValidPassword2(String input) {
               The difference in compactness is fairly obvious at this point. Due to the increase in complexity of the task, the code implementation becomes less trivial and much more verbose. One could argue that the code on the left hand side is much easier to understand, compared to the seemingly incomprehensible regex. However, through this tutorial, I hope you will be able to appreciate how intuitive regex can be once you understand the basic syntax.
             </p>
           </div>
-          <div id="syntax">
-            <h2>Syntax</h2>
+          <div id="syntax" style = "margin-bottom: 15%;">
+            <h1>Syntax</h1>
             <p>
               Up to this point, we have been discussing and building motivation for using regex in the specific task of string matching. In this section, we will start to discuss about the actual syntax, in other words the rules, of the language. In particular, we will be using the Traditional Non-Determistic Finite Automata (NFA) Regex engine. This is the same engine supporting regex in Python, Java and is one of the more widely used engine. We will not go into the internals of the engine in this basic tutorial, but a great resource on that would be <a href="http://shop.oreilly.com/product/9780596528126.do" target="_blank">Mastering Regular Expressions, 3rd Edition by O'Reilly Media</a>.
             </p>
@@ -157,8 +162,8 @@ public static boolean isValidPassword2(String input) {
             <p>
               The ability to formulate convoluted string patterns comes from the use of <b>"Metacharacters"</b>. Metacharacters are a set of special characters that affect the way that a pattern is to be matched. These Metacharacters can have different types, depending on their purpose in the regex, which will discuss in the subsequent sections.
             </p>
-            <div id="character-classes">
-              <h4 id="character-classes">Character Classes <code>[expression]</code></h4>
+            <div id="character-classes" style = "margin-bottom: 8%;">
+              <h3 id="character-classes">Character Classes <code>[expression]</code></h3>
               <p>
                 These constructs define a set of possible characters that can be matched. E.g: The regex <code>[abc]</code> will match with <b>either</b> an <code>'a'</code>, <code>'b'</code>, or <code>'c'</code> character. When dealing with Character Classes, there are some Metacharacters that only make sense when used in tandem.
               </p>
@@ -280,8 +285,8 @@ public static boolean isValidPassword2(String input) {
                 </tbody>
               </table>
             </div>
-            <div id="quantifiers">
-              <h4 id="quantifiers">Quantifiers</h4>
+            <div id="quantifiers" style = "margin-bottom: 4%;">
+              <h3 id="quantifiers">Quantifiers</h3>
               <p>
                 These are Metacharacters that specify the number of occurences that you want to match against.
               </p>
@@ -346,12 +351,12 @@ public static boolean isValidPassword2(String input) {
                 </tbody>
               </table>
             </div>
-            <div id="capturing-groups-backreferences">
-              <h4>Capturing Groups <code>(characters)</code></h4>
+            <div id="capturing-groups-backreferences" style = "margin-bottom: 4%;">
+              <h3>Capturing Groups <code>(characters)</code></h3>
               <p>
                 Capturing Groups are used to combine multiple characters into one unit. For example, the regex <code>(dog)</code> creates a single unit containing the characters <code>'d'</code>, <code>'o'</code>, <code>'g'</code>. By creating a single unit, capturing groups allow the use of Quantifiers with units. For example, the regex <code>(dog){3}</code> matches the string <code>"dogdogdog"</code>
               </p>
-              <h4>Back References <code>\digit</code></h4>
+              <h3>Back References <code>\digit</code></h3>
               <p>
                 While powerful on its own, perhaps a more empowering feature of Capturing Groups is enabling Back References. When Capturing Groups match, the match is saved in memory for later recall via backreference. The saved group can be recalled using the syntax <code>\digit</code>, where the digit corresponds to the order of the group in the regex. For example in the regex <code>(abc)(cc)\2</code>, Group 1 is "abc" while Group 2 is "cc". This regex will then use Group 2 and match the section <code>"abccccc"</code> in <code>"abccccabcabc"</code>.
               </p>
@@ -402,10 +407,10 @@ public static boolean isValidPassword2(String input) {
                 </tbody>
               </table>
             </div>
-            <div id="look-ahead-look-behind">
-              <h4>
+            <div id="look-ahead-look-behind" style = "margin-bottom: 4%;">
+              <h3>
                 Look-ahead & Look-behind <code>(?METACHARACTERexpression)</code>
-              </h4>
+              </h3>
               <p>
                 Look-aheads & Look-behinds are Non-Capturing Groups, where the match are not stored for backreference. They are interesting and very different from the previous constructs, in the sense that it does not return a match. Instead, it returns a match result, informing the engine whether the match was successful. For example, the regex <code>a(?=b)</code> matches <code>'a'</code>, if and only if the <code>'a'</code> is immediately followed by a <code>'b'</code>.
               </p>
@@ -459,8 +464,8 @@ public static boolean isValidPassword2(String input) {
               </table>
             </div>
           </div>
-          <div id="all-together-now">
-            <h2>All Together Now</h2>
+          <div id="all-together-now" style = "margin-bottom: 8%;">
+            <h1>All Together Now</h1>
             <p>
               Armed with the general knowledge of syntax, let us now revisit and break down the password validation regex above. To reiterate, the password requirement is:
             </p>
